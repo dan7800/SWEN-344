@@ -14,9 +14,8 @@ and refactor it to object oriented JavaScript.
 
 Start with this skeleton in the `source` directory and refactor it.
 
-##Releases
 
-###Release 0 : 
+###Release: 
 
 Refactor the pile-O Javascript using objects. Put as little as possible into the global scope!
 
@@ -24,14 +23,6 @@ Refactor the pile-O Javascript using objects. Put as little as possible into the
 2. Move the anonymous functions to objects.
 3. Each callback or event handler is only 1 or 2 lines
 4. Create a clear separation of concerns. 
-
-###Release 1 : MVC JavaScript
-
-Now that you've decoupled and named your functions, you should organize your code into objects grouped by behavior. 
-
-1. All your DOM-related behavior and state should be stored in a View object.
-2. Your game-related state should be stored elsewhere, with no knowledge of the DOM.
-3. A Controller object should handle communication between the various objects, as well as the binding of events. 
 
 <!-- ##Optimize Your Learning  -->
 

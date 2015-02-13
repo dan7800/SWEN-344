@@ -27,3 +27,4 @@ Refactor the pile-O Javascript using objects. Put as little as possible into the
 <!-- ##Optimize Your Learning  -->
 
 ##Resources
+[OOJS Tutorial](http://eloquentjavascript.net/1st_edition/chapter8.html)

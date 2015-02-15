@@ -1,13 +1,23 @@
 $(document).ready(function() {
-  $('#roller button.add').on('click', function() {
-    console.log("WAT")
-    $('.dice').append('<div class="die">0</div>');
-  });
+    var dice = {};
 
-  $('#roller button.roll').on('click', function() {
-    $('.die').each(function(k, die) {
-      var value = Math.floor((Math.random()*6)+1);
-      $(die).text(value);
+    dice.addDie = function() {
+        $('.dice').append('<div class="die">0</div>');
+    }
+
+    dice.roll = function() {
+        $('.die').each(function(k, die) {
+          var value = Math.floor((Math.random()*6)+1);
+          $(die).text(value);
+        });
+    }
+
+    $('#roller button.add').on('click', function() {
+        dice.addDie();
     });
-  });
+
+    $('#roller button.roll').on('click', function() {
+        dice.roll();
+    });
 });
+

@@ -7,11 +7,10 @@ function die()
 
 die.roll = function()
 {
-  for(var d in dice_array)
-  {
-    var newValue = Math.floor((Math.random()*6)+1);
-    d.value = newValue;
-  }
+  $('.die').each(function(k, die) {
+      var value = Math.floor((Math.random()*6)+1);
+      $(die).text(value);
+  });
 }
 
 die.add = function()
@@ -31,11 +30,4 @@ var addRollerButton = function (){
 
   $('#roller button.add').click(die.add);
   $('#roller button.roll').click(die.roll);
-
-  //$('#roller button.roll').on('click', function() {
-  //  $('.die').each(function(k, die) {
-  //    var value = Math.floor((Math.random()*6)+1);
-  //    $(die).text(value);
-  //  });
-  //});
 });

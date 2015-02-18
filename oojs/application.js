@@ -1,13 +1,16 @@
-$(document).ready(function() {
-  $('#roller button.add').on('click', function() {
-    console.log("WAT")
-    $('.dice').append('<div class="die">0</div>');
-  });
+window.onload = function() {
+  document.querySelector('#roller button.add').onclick = function() {
+    var die = document.createElement('div');
+    die.className = 'die';
+    die.innerText = '0';
+    console.log('WAT');
+    document.querySelector('.dice').appendChild(die);
+  };
 
-  $('#roller button.roll').on('click', function() {
-    $('.die').each(function(k, die) {
-      var value = Math.floor((Math.random()*6)+1);
-      $(die).text(value);
+  document.querySelector('#roller button.roll').onclick = function() {
+    Array.prototype.forEach.call(document.querySelectorAll('.die'), function(die) {
+      var value = Math.floor((Math.random()*6) + 1);
+      die.innerText = value;
     });
-  });
-});
+  };
+};

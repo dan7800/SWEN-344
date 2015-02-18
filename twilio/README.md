@@ -66,6 +66,7 @@ https://api.twilio.com/2010-04-01/Accounts/AC4ef6560c936f0eaf2aee26b3223b6749/Me
   - u: My user and auth token
 
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
+  - They use Twilio custom code to make a POST request behind the scenes.
 
 4. What type of request is being made (select one)?
   - [ ] GET

@@ -25,6 +25,12 @@ namespace WcfWebEng
 
       [OperationContract]
       int Divide(int num1, int num2);
+
+      [OperationContract]
+      double ConvertToCelsius(double degreesFahrenheit);
+
+      [OperationContract]
+      double ConvertToFahrenheit(double degreesCelcius);
    }
 
    // Use a data contract as illustrated in the sample below to add 

@@ -57,5 +57,39 @@ namespace WcfWebEng
             return 1;
          }
       }
+
+      // This function returns input (degrees in fahrenheit)
+      // converted to degrees celsius.
+
+      public double ConvertToCelsius(double degreesFahrenheit)
+      {
+          // Deduct 32
+          double degreesCelsius = degreesFahrenheit - 32;
+
+          // Multiply by 5
+          degreesCelsius = degreesCelsius * 5;
+
+          // Divide by 9
+          degreesCelsius = degreesCelsius / 9;
+
+          return degreesCelsius;
+      }
+
+      // This function returns input (degrees in celsius)
+      // converted to degrees fahrenheit.
+
+      public double ConvertToFahrenheit(double degreesCelsius)
+      {
+          // Multiply by 9
+          double degreesFahrenheit = degreesCelsius * 9;
+
+          // Divide by 5
+          degreesFahrenheit = degreesFahrenheit / 5;
+
+          // Add 32
+          degreesFahrenheit = degreesFahrenheit + 32;
+
+          return degreesFahrenheit;
+      }
    }
 }

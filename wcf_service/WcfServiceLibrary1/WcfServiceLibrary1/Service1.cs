@@ -57,5 +57,17 @@ namespace WcfServiceLibrary1
             return 1;
          }
       }
+
+      //This function returns the farenheit equivalent to a celcius temperature
+      public double celc2Far(int num)
+      {
+          return num * 1.8 + 32;
+      }
+
+      //This function returns the celcius equivalent to a farenheit temperature
+      public double far2Celc(int num)
+      {
+          return (num - 32) / 1.8;
+      }
    }
 }

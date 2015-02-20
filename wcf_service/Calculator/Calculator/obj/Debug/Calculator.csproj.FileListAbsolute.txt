@@ -1,0 +1,5 @@
+\\mightor\home\fall2011\jtf8647\documents\visual studio 2010\Projects\Calculator\Calculator\bin\Debug\Calculator.dll.config
+\\mightor\home\fall2011\jtf8647\documents\visual studio 2010\Projects\Calculator\Calculator\bin\Debug\Calculator.dll
+\\mightor\home\fall2011\jtf8647\documents\visual studio 2010\Projects\Calculator\Calculator\bin\Debug\Calculator.pdb
+\\mightor\home\fall2011\jtf8647\documents\visual studio 2010\Projects\Calculator\Calculator\obj\Debug\Calculator.dll
+\\mightor\home\fall2011\jtf8647\documents\visual studio 2010\Projects\Calculator\Calculator\obj\Debug\Calculator.pdb

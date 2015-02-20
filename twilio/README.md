@@ -71,8 +71,8 @@ The first part (`http://api.website.com/new_post_request`) is the base URL, whil
     
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
 
-        They take the input from the fields and feed them into their corresponding attributes, 
-        and arranging the information using the proper syntax. 
+        The wrappers take the input from the fields and feed them into their corresponding attributes in the request. 
+        They also arrrange the retrieved information in proper syntax for the request. 
 
 4. What type of request is being made (select one)?
   - [ ] GET

@@ -61,7 +61,8 @@ The first part (`http://api.website.com/new_post_request`) is the base URL, whil
 	-the authorization information(sid, token)
 
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
-	-the wrappes will hide the Json messeage you are sending so its not seen in the url.
+	-the wrappers, create a twilio object created using the client id and sid, and then sets the messege information (who it is being sent from)
+	
 
 4. What type of request is being made (select one)?
   - [ ] GET

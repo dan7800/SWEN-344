@@ -25,6 +25,12 @@ namespace WcfServiceLibrary1
 
       [OperationContract]
       int Divide(int num1, int num2);
+
+      [OperationContract]
+      double celc2Far(int num);
+
+      [OperationContract]
+      double far2Celc(int num);
    }
 
    // Use a data contract as illustrated in the sample below to add 

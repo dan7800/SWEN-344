@@ -55,17 +55,33 @@ The first part (`http://api.website.com/new_post_request`) is the base URL, whil
 
 1. What would the request for your create_message look like (replace tokens with `[tokenName]` so as not to share this publicly)?
 
+A cURL request would look as follows:
+
+curl -XPOST https://api.twilio.com/2010-04-01/Accounts/[AccountSid]/Messages.json \
+    --data-urlencode "Body=Text" \
+    --data-urlencode "To=+15551234567" \
+    --data-urlencode "From=+15559876543" \
+    -u '[AccountSid]:[AuthToken]'
+
+The rest of the data would be posted, so you wouldn't actually see 
+
 2. What are the different attributes you are passing?
 
+I'm passing AccountSid, To, From, and Body.
+
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
+
+The wrappers in the code examples are taking the parameter values provided in the code and generating an appropriate request by placing the parameter values into the standard request behind the scenes.
 
 4. What type of request is being made (select one)?
   - [ ] GET
   - [ ] PUT
-  - [ ] POST
+  - [x] POST
   - [ ] DELETE
 
 5. How does the API keep someone else from using this number to make a request?
+
+There are authentication tokens mapped to an account in the application database. A request made to the API must be made with an authentication token that is specific to that account. New authentication tokens can be generated and old ones can be removed at any time. This can be used to replace an authentication token if it has been compromised or is simply no longer in use. These authentication tokens are meant to remain secret, since the use of a valid token allows the request to be processed by the server.
 
 
 ##Resources

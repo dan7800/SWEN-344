@@ -22,6 +22,12 @@ namespace Calculator
 
         [OperationContract]
         int Divide(int num1, int num2);
+
+        [OperationContract]
+        float toCelcius(float fah);
+
+        [OperationContract]
+        float toFahrenheit(float cel);
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations

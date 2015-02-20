@@ -54,5 +54,19 @@ namespace Calculator
                 return 1;
             }
         }
+
+        // This function converts fahrenheit to celcius.
+
+        public float toCelcius(float fah)
+        {
+            return (fah - 32) * 5 / 9;
+        }
+
+        // This function converts celcius to fahrenheit.
+
+        public float toFahrenheit(float cel)
+        {
+            return cel * 9 / 5 + 32;
+        }
     }
 }

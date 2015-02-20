@@ -54,19 +54,27 @@ http://api.website.com/new_post_request?attr=my%20data&anotherParam=importantInf
 The first part (`http://api.website.com/new_post_request`) is the base URL, while the stuff that comes after is the params being passed. Typically in your web apps this will be wrapped in a request which contains other information like what kind of request(`GET`,`POST`, etc) and what kind of data are you passing (`JSON`,`XML`, etc).
 
 1. What would the request for your create_message look like (replace tokens with `[tokenName]` so as not to share this publicly)?
+curl -X POST 'https://api.twilio.com/2010-04-01/Accounts/ACb8e05b468808defee1615300bc95cdf9/Messages.json' \
+--data-urlencode 'To=+12625011304'  \
+--data-urlencode 'From=+14142693161'  \
+--data-urlencode 'Body=Test' \
+-u ACb8e05b468808defee1615300bc95cdf9:[AuthToken]
+
 
 2. What are the different attributes you are passing?
+The number its being sent to, the number its being sent from and the body of the text in the form of a json object
 
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
+The wrappers format the data and request to be sent to twilio.
 
 4. What type of request is being made (select one)?
   - [ ] GET
   - [ ] PUT
-  - [ ] POST
+  - [X] POST
   - [ ] DELETE
 
 5. How does the API keep someone else from using this number to make a request?
-
+If the authToken matches with the server then its like the key to the lock and processes the request
 
 ##Resources
 [Twilio](http://eloquentjavascript.net/1st_edition/chapter8.html)

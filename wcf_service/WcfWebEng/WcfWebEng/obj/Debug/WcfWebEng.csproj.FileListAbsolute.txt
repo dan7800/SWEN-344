@@ -1,0 +1,5 @@
+C:\Users\Michael\Desktop\SWEN-344\wcf_service\WcfWebEng\WcfWebEng\bin\Debug\WcfWebEng.dll.config
+C:\Users\Michael\Desktop\SWEN-344\wcf_service\WcfWebEng\WcfWebEng\bin\Debug\WcfWebEng.dll
+C:\Users\Michael\Desktop\SWEN-344\wcf_service\WcfWebEng\WcfWebEng\bin\Debug\WcfWebEng.pdb
+C:\Users\Michael\Desktop\SWEN-344\wcf_service\WcfWebEng\WcfWebEng\obj\Debug\WcfWebEng.dll
+C:\Users\Michael\Desktop\SWEN-344\wcf_service\WcfWebEng\WcfWebEng\obj\Debug\WcfWebEng.pdb

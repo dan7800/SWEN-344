@@ -63,7 +63,7 @@ The first part (`http://api.website.com/new_post_request`) is the base URL, whil
 2. What are the different attributes you are passing?
         Format
         AccountSid
-        To 
+        To
         From
         Body
     

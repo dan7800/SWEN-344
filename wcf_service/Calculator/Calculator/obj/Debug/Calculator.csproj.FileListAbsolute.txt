@@ -3,3 +3,10 @@
 \\mightor\home\fall2011\jtf8647\documents\visual studio 2010\Projects\Calculator\Calculator\bin\Debug\Calculator.pdb
 \\mightor\home\fall2011\jtf8647\documents\visual studio 2010\Projects\Calculator\Calculator\obj\Debug\Calculator.dll
 \\mightor\home\fall2011\jtf8647\documents\visual studio 2010\Projects\Calculator\Calculator\obj\Debug\Calculator.pdb
+Z:\SWEN-344-Act1\SWEN-344\wcf_service\Calculator\Calculator\bin\Debug\Calculator.dll.config
+Z:\SWEN-344-Act1\SWEN-344\wcf_service\Calculator\Calculator\bin\Debug\Calculator.dll
+Z:\SWEN-344-Act1\SWEN-344\wcf_service\Calculator\Calculator\bin\Debug\Calculator.pdb
+Z:\SWEN-344-Act1\SWEN-344\wcf_service\Calculator\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+Z:\SWEN-344-Act1\SWEN-344\wcf_service\Calculator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.Cache
+Z:\SWEN-344-Act1\SWEN-344\wcf_service\Calculator\Calculator\obj\Debug\Calculator.dll
+Z:\SWEN-344-Act1\SWEN-344\wcf_service\Calculator\Calculator\obj\Debug\Calculator.pdb

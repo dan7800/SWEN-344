@@ -25,6 +25,12 @@ namespace Calculator
 
       [OperationContract]
       int Divide(int num1, int num2);
+
+      [OperationContract]
+      int fToC(int num1);
+
+      [OperationContract]
+      int cToF(int num1);
    }
 
    // Use a data contract as illustrated in the sample below to add 

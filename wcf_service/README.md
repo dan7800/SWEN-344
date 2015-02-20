@@ -10,7 +10,7 @@ Microsoft has moved to consolidate all of their web service frameworks into thei
 
 ##Instructions:
 
-1.Goto the WCF tutorial [here]() to run through setting up the basic project. Follow the instructions to convert the base app to be a service that does basic calculator functions.
+1.Goto the WCF tutorial [here](http://www.tutorialspoint.com/wcf/wcf_creating_service.htm) to run through setting up the basic project. Follow the instructions to convert the base app to be a service that does basic calculator functions.
 
 2. Once you have your app running and have ran through all the instructions, commit your work and move to the next step.
 

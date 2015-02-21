@@ -1,4 +1,4 @@
-# P6 JavaScript Refactor Procedural To OO
+# JavaScript Refactor Procedural To OO
  
 ##Learning Competencies 
 

@@ -55,18 +55,32 @@ The first part (`http://api.website.com/new_post_request`) is the base URL, whil
 
 1. What would the request for your create_message look like (replace tokens with `[tokenName]` so as not to share this publicly)?
 
+curl -X POST 'https://api.twilio.com/2010-04-01/Accounts/AC407470e6733199ac15ff2dbe86f441f7/Messages.json' \
+--data-urlencode 'To=[MyCell]'  \
+--data-urlencode 'From=[MyTwilioNumber]'  \
+--data-urlencode 'Body=derp' \
+-u AC407470e6733199ac15ff2dbe86f441f7:[AuthToken]
+
 2. What are the different attributes you are passing?
 
+To: The phone number to send the message to
+From: The Twilio number to send the message from
+Body: The text in the message
+u: My user and authentication token
+
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
+
+The wrappers are probably using custom code made for/by Twilio to make POST requests.
 
 4. What type of request is being made (select one)?
   - [ ] GET
   - [ ] PUT
-  - [ ] POST
+  - [X] POST
   - [ ] DELETE
 
 5. How does the API keep someone else from using this number to make a request?
 
+The API uses my unique user and auth tokens so that any requests generated are made by my account.
 
 ##Resources
 [Twilio](http://eloquentjavascript.net/1st_edition/chapter8.html)

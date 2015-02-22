@@ -48,24 +48,42 @@ StatusCallback | This is where you tell the API where to send the response to. T
 Answer the following questions by editing this document and submit by pull request.
 
 ####Here is a breakdown of a url request:
-```
+
 http://api.website.com/new_post_request?attr=my%20data&anotherParam=importantInfo
-```
+
 The first part (`http://api.website.com/new_post_request`) is the base URL, while the stuff that comes after is the params being passed. Typically in your web apps this will be wrapped in a request which contains other information like what kind of request(`GET`,`POST`, etc) and what kind of data are you passing (`JSON`,`XML`, etc).
 
 1. What would the request for your create_message look like (replace tokens with `[tokenName]` so as not to share this publicly)?
 
+        curl -X POST 'https://api.twilio.com/2010-04-01/Accounts/ACa3bd5e202d2624c87683fd18b188b5c9/Messages.json' \
+        --data-urlencode 'To=[tokenName]'  \
+        --data-urlencode 'From=[tokenName]'  \
+        --data-urlencode 'Body=[tokenName]' \
+        -u ACa3bd5e202d2624c87683fd18b188b5c9:[AuthToken]
+
 2. What are the different attributes you are passing?
 
+        Format
+        AccountSid
+        To
+        From
+        Body
+    
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
+
+        The wrappers take the input from the fields and feed them into their corresponding attributes in the request. 
+        They also arrrange the retrieved information in proper syntax for the request. 
 
 4. What type of request is being made (select one)?
   - [ ] GET
   - [ ] PUT
-  - [ ] POST
+  - [X] POST
   - [ ] DELETE
 
 5. How does the API keep someone else from using this number to make a request?
+
+        The API would validate the number with the AccountSid, as well as the Authentication Token
+        to ensure the request is legitimate. 
 
 
 ##Resources

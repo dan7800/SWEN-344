@@ -1,0 +1,6 @@
+C:\Users\Jacqueline-Faith\Documents\Visual Studio 2010\Templates\Calculator\Calculator\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Jacqueline-Faith\Documents\Visual Studio 2010\Templates\Calculator\Calculator\bin\Debug\Calculator.dll.config
+C:\Users\Jacqueline-Faith\Documents\Visual Studio 2010\Templates\Calculator\Calculator\bin\Debug\Calculator.dll
+C:\Users\Jacqueline-Faith\Documents\Visual Studio 2010\Templates\Calculator\Calculator\bin\Debug\Calculator.pdb
+C:\Users\Jacqueline-Faith\Documents\Visual Studio 2010\Templates\Calculator\Calculator\obj\Debug\Calculator.dll
+C:\Users\Jacqueline-Faith\Documents\Visual Studio 2010\Templates\Calculator\Calculator\obj\Debug\Calculator.pdb

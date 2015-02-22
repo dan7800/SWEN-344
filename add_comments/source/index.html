@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
   <title>Add Comments</title>
 </head>
 <body>
@@ -19,7 +19,16 @@
         <span class="author">Tom Jones</span>
       </li>
     </ul>
-
+	
+	<!-- Form to submit new comments -->
+	<form id="enter_comment">
+	Enter comment:<br>
+	<textarea id="comment_text" rows="4" cols="50"></textarea>
+	<br>
+	Submitted by:<br>
+	<input type="text" id="comment_submitter">
+	<input type="submit" id="comment_submit" value="Submit Comment">
+	</form>
 
     <button id="new_comment_button">New Comment</button>
   </div>

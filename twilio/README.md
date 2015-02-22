@@ -55,17 +55,40 @@ The first part (`http://api.website.com/new_post_request`) is the base URL, whil
 
 1. What would the request for your create_message look like (replace tokens with `[tokenName]` so as not to share this publicly)?
 
+  - curl -X POST 'https://api.twilio.com/2010-04-01/Accounts/[tokenName]/Messages.json' \
+	--data-urlencode 'To=+15853603296'  \
+	--data-urlencode 'From=+15854716769'  \
+	--data-urlencode 'Body=Test Message 1 2 3' \
+	-u [tokenName]:[AuthToken]
+  - The URL once encoded might look something like this:	
+	- 'https://api.twilio.com/2010-04-01/Accounts/[tokenName]/Messages.json?attr=POST%to=+15853603296&from=+15854716769&body=TestMessage123&[AuthToken]'
+
 2. What are the different attributes you are passing?
+  
+  - The attributes are:
+	- To -> The number to send the message to
+	- From -> The number to send the message from
+	- Body -> The message to send, it can be replaced by MediaUrl for MMS.
+	- the [tokenName] for authentication purposes
 
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
+
+  - The functions in the wrappers are responsible for encoding the URLs to pass the parameter in.
+	For example, in Python TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN) creates a twilio client object
+	which in turn has the methods required to encode the parameters into the URL that is called.
+	The method called client.messages.create() takes in the attributes listed above as arguments
+	and encodes the url and sends the request.
 
 4. What type of request is being made (select one)?
   - [ ] GET
   - [ ] PUT
-  - [ ] POST
+  - [X] POST
   - [ ] DELETE
 
 5. How does the API keep someone else from using this number to make a request?
+
+  - The number is associated with the tokenName and as a result only someone who authenticated with
+	the tokenName and authToken is allowed to send a request using this number.
 
 
 ##Resources

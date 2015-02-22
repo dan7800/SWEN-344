@@ -54,19 +54,31 @@ http://api.website.com/new_post_request?attr=my%20data&anotherParam=importantInf
 The first part (`http://api.website.com/new_post_request`) is the base URL, while the stuff that comes after is the params being passed. Typically in your web apps this will be wrapped in a request which contains other information like what kind of request(`GET`,`POST`, etc) and what kind of data are you passing (`JSON`,`XML`, etc).
 
 1. What would the request for your create_message look like (replace tokens with `[tokenName]` so as not to share this publicly)?
+	curl -X POST 'https://api.twilio.com/2010-04-01/Accounts/AC6a0de9dfe06d04eb952b232915ab817c/Messages.json' \
+	--data-urlencode 'To=6093846559'  \
+	--data-urlencode 'From=+18482218346'  \
+	--data-urlencode 'Body=Yo this is hot' \
+	-u AC6a0de9dfe06d04eb952b232915ab817c:[AuthToken]
 
 2. What are the different attributes you are passing?
+	To -> The phone number where the text is getting sent to
+	From->The phone number this message is being sent from
+	Body-> The text content of the text messages
+
 
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
+	The wrappers take the request and create some sort of HTTP request from the information provided. The request is fired off, 
+	and a JSON responce is sent back since I specified json in the request  
 
 4. What type of request is being made (select one)?
   - [ ] GET
   - [ ] PUT
-  - [ ] POST
+  - [X] POST
   - [ ] DELETE
 
 5. How does the API keep someone else from using this number to make a request?
-
+	There is a secert key asscoited with my account, and my number is also asscoited with my account. Thus
+	in order to make a requests using my number you need my auth token.
 
 ##Resources
 [Twilio](http://eloquentjavascript.net/1st_edition/chapter8.html)

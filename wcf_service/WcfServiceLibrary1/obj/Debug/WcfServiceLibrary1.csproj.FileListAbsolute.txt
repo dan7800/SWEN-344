@@ -1,0 +1,12 @@
+c:\users\towhi_000\documents\visual studio 2013\Projects\WcfServiceLibrary1\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.csprojResolveAssemblyReference.cache
+c:\users\towhi_000\documents\visual studio 2013\Projects\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll.config
+c:\users\towhi_000\documents\visual studio 2013\Projects\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll
+c:\users\towhi_000\documents\visual studio 2013\Projects\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.pdb
+c:\users\towhi_000\documents\visual studio 2013\Projects\WcfServiceLibrary1\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.dll
+c:\users\towhi_000\documents\visual studio 2013\Projects\WcfServiceLibrary1\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.pdb
+C:\Users\towhi_000\Documents\GitHub\SWEN-344\wcf_service\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.csprojResolveAssemblyReference.cache
+C:\Users\towhi_000\Documents\GitHub\SWEN-344\wcf_service\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.dll
+C:\Users\towhi_000\Documents\GitHub\SWEN-344\wcf_service\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.pdb
+C:\Users\towhi_000\Documents\GitHub\SWEN-344\wcf_service\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll.config
+C:\Users\towhi_000\Documents\GitHub\SWEN-344\wcf_service\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll
+C:\Users\towhi_000\Documents\GitHub\SWEN-344\wcf_service\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.pdb

@@ -55,17 +55,44 @@ The first part (`http://api.website.com/new_post_request`) is the base URL, whil
 
 1. What would the request for your create_message look like (replace tokens with `[tokenName]` so as not to share this publicly)?
 
+// Download the twilio-csharp library from twilio.com/docs/csharp/install 
+using System; 
+using Twilio; 
+class Example 
+{ 
+ static void Main(string[] args) 
+ { 
+ 	// Find your Account Sid and Auth Token at twilio.com/user/account 
+ 	string AccountSid = "[AccountId]"; 
+ 	string AuthToken = "[AuthToken]"; 
+ 	var twilio = new TwilioRestClient(AccountSid, AuthToken); 
+ 
+ 	var message = twilio.SendMessage("+13158025024", "[MyNumber]", "Test From class", null, null); 
+ 	Console.WriteLine(message.Sid); 
+ } 
+}
+
 2. What are the different attributes you are passing?
 
+The Format of the object: JSON
+The Account Id that is being used to send the message: [AccountId]
+The destination phone number: [MyNumber]
+The phone number of the twilio account being used to send the message: 13158025024
+The Body of the message: Test From class 
+
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
+
+The wrapper sets the Auth Token/Id while identifying that JSON data is being sent. It also serves to identify the request as a POST.
 
 4. What type of request is being made (select one)?
   - [ ] GET
   - [ ] PUT
-  - [ ] POST
+  - [X] POST
   - [ ] DELETE
 
 5. How does the API keep someone else from using this number to make a request?
+
+The API keeps someone else from using the number to make a request by using the AccountId along with an Authentication Token. No other account would have the proper Auth Token.
 
 
 ##Resources

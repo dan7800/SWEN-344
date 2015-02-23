@@ -51,22 +51,38 @@ Answer the following questions by editing this document and submit by pull reque
 ```
 http://api.website.com/new_post_request?attr=my%20data&anotherParam=importantInfo
 ```
-The first part (`http://api.website.com/new_post_request`) is the base URL, while the stuff that comes after is the params being passed. Typically in your web apps this will be wrapped in a request which contains other information like what kind of request(`GET`,`POST`, etc) and what kind of data are you passing (`JSON`,`XML`, etc).
+The first part (`http://api.website.com/new_post_request`) is the base URL, while the stuff 
+that comes after is the params being passed. Typically in your web apps this will be wrapped 
+in a request which contains other information like what kind of request(`GET`,`POST`, etc) 
+and what kind of data are you passing (`JSON`,`XML`, etc).
 
 1. What would the request for your create_message look like (replace tokens with `[tokenName]` so as not to share this publicly)?
 
-2. What are the different attributes you are passing?
+curl -X POST 'https://api.twilio.com/2010-04-01/Accounts/ACa986c58a30f773963860728126665bd6/Messages.json' \
+--data-urlencode 'To=[MyPersonalPhoneNumber]'  \
+--data-urlencode 'From=+17162496071' \
+--data-urlencode 'Body=Yo' \
+-u ACa986c58a30f773963860728126665bd6:[AuthToken]
 
+2. What are the different attributes you are passing?
+	To - a phone number
+	From - Twillo phone number
+	Body - A message to be sent
+	
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
+	The wrappers may be building the request string behind the scenes.
+	
 
 4. What type of request is being made (select one)?
   - [ ] GET
   - [ ] PUT
-  - [ ] POST
+  - [X] POST
   - [ ] DELETE
 
 5. How does the API keep someone else from using this number to make a request?
 
+By using the Account SID (which acts like a username) and the AuthToken (which acts like 
+a password).
 
 ##Resources
 [Twilio](http://eloquentjavascript.net/1st_edition/chapter8.html)

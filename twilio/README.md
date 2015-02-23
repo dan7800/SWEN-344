@@ -55,18 +55,37 @@ The first part (`http://api.website.com/new_post_request`) is the base URL, whil
 
 1. What would the request for your create_message look like (replace tokens with `[tokenName]` so as not to share this publicly)?
 
+'https://api.twilio.com/2010-04-01/Accounts/[account_sid]/Messages.json' \
+--data-urlencode 'To=[To]'  \
+--data-urlencode 'From=+13478756778'  \
+--data-urlencode 'Body=[Body]'  \
+-d 'MediaUrl=[MediaUrl]'  \
+-d 'StatusCallback=[StatusCallback]'
+-u [account_sid]:[tokenName]
+
 2. What are the different attributes you are passing?
+-To
+-From
+-Body
+-MediaUrl
+-StatusCallback
+-account_sid
+-Authenication Token
 
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
+
+The wrappers take in the different attributes and uses them to construct a post request.
+
 
 4. What type of request is being made (select one)?
   - [ ] GET
   - [ ] PUT
-  - [ ] POST
+  - [X] POST
   - [ ] DELETE
 
 5. How does the API keep someone else from using this number to make a request?
 
+The API takens in an account_sid and authenication token and uses them to verify the request.
 
 ##Resources
 [Twilio](http://eloquentjavascript.net/1st_edition/chapter8.html)

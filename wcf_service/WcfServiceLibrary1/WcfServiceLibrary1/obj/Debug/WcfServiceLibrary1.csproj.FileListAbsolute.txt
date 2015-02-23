@@ -1,0 +1,5 @@
+Z:\Git\SWEN-344\wcf_service\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll.config
+Z:\Git\SWEN-344\wcf_service\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll
+Z:\Git\SWEN-344\wcf_service\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.pdb
+Z:\Git\SWEN-344\wcf_service\WcfServiceLibrary1\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.dll
+Z:\Git\SWEN-344\wcf_service\WcfServiceLibrary1\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.pdb

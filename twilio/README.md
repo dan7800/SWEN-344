@@ -55,18 +55,27 @@ The first part (`http://api.website.com/new_post_request`) is the base URL, whil
 
 1. What would the request for your create_message look like (replace tokens with `[tokenName]` so as not to share this publicly)?
 
-2. What are the different attributes you are passing?
+$ curl -XPOST https://api.twilio.com/2010-04-01/Accounts/[accountSid]/Messages.json \
+    -d "Body=Jenny%20please%3F%21%20I%20love%20you%20<3" \
+    -d "To=%2B15558675309" \
+    -d "From=%2B14158141829" \
+    -d "MediaUrl=http://www.example.com/hearts.png" \
+    -u '[accountSid]:{AuthToken}'
+	
+(Using the REST API create_message example provided on the website)
 
+2. What are the different attributes you are passing?
+Message body, a receiving address, a sender's address, some form of additional/optional media, and the account credentials and the authorization token
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
 
 4. What type of request is being made (select one)?
   - [ ] GET
   - [ ] PUT
-  - [ ] POST
+  - [X] POST
   - [ ] DELETE
 
 5. How does the API keep someone else from using this number to make a request?
-
+The API provides you with a personal AccountSid that is tied to your account and (should be) kept secret from any malicious user that wants to fake your request. 
 
 ##Resources
 [Twilio](http://eloquentjavascript.net/1st_edition/chapter8.html)

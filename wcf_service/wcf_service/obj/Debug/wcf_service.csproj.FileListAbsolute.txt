@@ -1,0 +1,6 @@
+C:\Users\Matthew\Projects\SWEN-344\wcf_service\wcf_service\bin\Debug\wcf_service.dll.config
+C:\Users\Matthew\Projects\SWEN-344\wcf_service\wcf_service\bin\Debug\wcf_service.dll
+C:\Users\Matthew\Projects\SWEN-344\wcf_service\wcf_service\bin\Debug\wcf_service.pdb
+C:\Users\Matthew\Projects\SWEN-344\wcf_service\wcf_service\obj\Debug\wcf_service.csprojResolveAssemblyReference.cache
+C:\Users\Matthew\Projects\SWEN-344\wcf_service\wcf_service\obj\Debug\wcf_service.dll
+C:\Users\Matthew\Projects\SWEN-344\wcf_service\wcf_service\obj\Debug\wcf_service.pdb

@@ -9,17 +9,43 @@ using System.Text;
 
 namespace SyndicationServiceLibrary1
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IFeed1" in both code and config file together.
     [ServiceContract]
-    [ServiceKnownType(typeof(Atom10FeedFormatter))]
-    [ServiceKnownType(typeof(Rss20FeedFormatter))]
-    public interface IFeed1
-    {
+   public interface IService1
+   {
+      [OperationContract]
+      int sum(int num1, int num2);
 
-        [OperationContract]
-        [WebGet(UriTemplate = "*", BodyStyle = WebMessageBodyStyle.Bare)]
-        SyndicationFeedFormatter CreateFeed();
+      [OperationContract]
+      int Subtract(int num1, int num2);
 
-        // TODO: Add your service operations here
-    }
+      [OperationContract]
+      int Multiply(int num1, int num2);
+
+      [OperationContract]
+      int Divide(int num1, int num2);
+   }
+
+   // Use a data contract as illustrated in the sample below to add 
+   // composite types to service operations.
+
+   [DataContract]
+   public class CompositeType
+   {
+      bool boolValue = true;
+      String stringValue = "Hello ";
+
+      [DataMember]
+      public bool BoolValue
+      {
+         get { return boolValue; }
+         set { boolValue = value; }
+      }
+
+      [DataMember]   
+      public string StringValue
+      {
+         get { return stringValue; }
+         set { stringValue = value; }
+      }
+   }
 }

@@ -10,34 +10,51 @@ using System.Text;
 namespace SyndicationServiceLibrary1
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Feed1" in both code and config file together.
-    public class Feed1 : IFeed1
-    {
-        public SyndicationFeedFormatter CreateFeed()
-        {
-            // Create a new Syndication Feed.
-            SyndicationFeed feed = new SyndicationFeed("Feed Title", "A WCF Syndication Feed", null);
-            List<SyndicationItem> items = new List<SyndicationItem>();
+     public class Service1 :IService1
+   {
+      
+      // This Function Returns summation of two integer numbers
+      
+      public int sum(int num1, int num2)
+      {
+         return num1 + num2;
+      }
+      
+      // This function returns subtraction of two numbers. 
+      // If num1 is smaller than number two then this function returns 0
+      
+      public int Subtract(int num1, int num2)
+      {
+         if (num1 > num2)
+         {
+            return num1 - num2;
+         }
+         else
+         {
+            return 0;
+         }
+      }
+      
+      // This function returns multiplication of two integer numbers.
 
-            // Create a new Syndication Item.
-            SyndicationItem item = new SyndicationItem("An item", "Item content", null);
-            items.Add(item);
-            feed.Items = items;
+      public int Multiply(int num1, int num2)
+      {
+         return num1 * num2;
+      }
+      
+      // This function returns integer value of two integer number. 
+      // If num2 is 0 then this function returns 1.
 
-            // Return ATOM or RSS based on query string
-            // rss -> http://localhost:8732/Design_Time_Addresses/SyndicationServiceLibrary1/Feed1/
-            // atom -> http://localhost:8732/Design_Time_Addresses/SyndicationServiceLibrary1/Feed1/?format=atom
-            string query = WebOperationContext.Current.IncomingRequest.UriTemplateMatch.QueryParameters["format"];
-            SyndicationFeedFormatter formatter = null;
-            if (query == "atom")
-            {
-                formatter = new Atom10FeedFormatter(feed);
-            }
-            else
-            {
-                formatter = new Rss20FeedFormatter(feed);
-            }
-
-            return formatter;
-        }
-    }
+      public int Divide(int num1, int num2)
+      {
+         if (num2 != 0)
+         {
+            return (num1 / num2);
+         }
+         else
+         {
+            return 1;
+         }
+      }
+   }
 }

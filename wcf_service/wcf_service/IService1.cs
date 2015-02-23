@@ -23,6 +23,12 @@ namespace wcf_service
         [OperationContract]
         int Divide(int num1, int num2);
 
+        [OperationContract]
+        double celciusToFarhenheit(double num1);
+
+        [OperationContract]
+        double farhenheitToCelcius(double num1);
+
         // TODO: Add your service operations here
     }
 

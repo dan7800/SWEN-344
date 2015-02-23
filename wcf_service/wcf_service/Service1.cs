@@ -53,5 +53,19 @@ namespace wcf_service
             return 1;
          }
       }
+
+    // This function returns double value of a double number.
+
+      public double celciusToFarhenheit(double num1)
+      {
+          return num1 * 9 / 5 + 32;
+      }
+
+      // This function returns double value of a double number.
+
+      public double farhenheitToCelcius(double num1)
+      {
+          return (num1 - 32) * 5 / 9;
+      }
     }
 }

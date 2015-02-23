@@ -57,5 +57,15 @@ namespace WcfServiceLibrary1
             return 1;
          }
       }
+
+      public int celciusToFarhenheit(int cel)
+      {
+          return ((cel * 9) / 5) + 32;
+      }
+
+      public int farhenheitToCelcius(int farhen)
+      {
+          return ((farhen - 32) * 5) / 9;
+      }
    }
 }

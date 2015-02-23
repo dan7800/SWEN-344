@@ -25,6 +25,12 @@ namespace WcfServiceLibrary1
 
       [OperationContract]
       int Divide(int num1, int num2);
+
+      [OperationContract]
+      int celciusToFarhenheit(int cel);
+
+      [OperationContract]
+      int farhenheitToCelcius(int farhen);
    }
 
    // Use a data contract as illustrated in the sample below to add 

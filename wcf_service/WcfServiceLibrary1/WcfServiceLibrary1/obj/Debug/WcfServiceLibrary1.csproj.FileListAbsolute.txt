@@ -4,3 +4,9 @@ c:\users\mjhickson\documents\visual studio 2013\Projects\WcfServiceLibrary1\WcfS
 c:\users\mjhickson\documents\visual studio 2013\Projects\WcfServiceLibrary1\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.csprojResolveAssemblyReference.cache
 c:\users\mjhickson\documents\visual studio 2013\Projects\WcfServiceLibrary1\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.dll
 c:\users\mjhickson\documents\visual studio 2013\Projects\WcfServiceLibrary1\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.pdb
+C:\Users\mjhickson\Documents\GitHub\SWEN-344\wcf_service\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll.config
+C:\Users\mjhickson\Documents\GitHub\SWEN-344\wcf_service\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll
+C:\Users\mjhickson\Documents\GitHub\SWEN-344\wcf_service\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.pdb
+C:\Users\mjhickson\Documents\GitHub\SWEN-344\wcf_service\WcfServiceLibrary1\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.csprojResolveAssemblyReference.cache
+C:\Users\mjhickson\Documents\GitHub\SWEN-344\wcf_service\WcfServiceLibrary1\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.dll
+C:\Users\mjhickson\Documents\GitHub\SWEN-344\wcf_service\WcfServiceLibrary1\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.pdb

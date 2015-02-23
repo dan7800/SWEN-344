@@ -22,6 +22,12 @@ namespace WcfServiceLibrary1
 
       [OperationContract]
       int Divide(int num1, int num2);
+
+      [OperationContract]
+      double ctof(double num1);
+
+      [OperationContract]
+      double ftoc(double num1);
    }
 
    // Use a data contract as illustrated in the sample below to add 

@@ -54,5 +54,17 @@ namespace WcfServiceLibrary1
             return 1;
          }
       }
+      
+       // Takes a Number - celcius and converts it to farenheit 
+       public double ctof(double num1)
+      {
+          return (num1 * 1.8 + 32);
+
+      }
+      // Takes a Number - farenheit and converts it to celcius 
+       public double ftoc(double num1)
+       {
+           return ((num1 - 32) / 1.8);
+       }
    }
 }

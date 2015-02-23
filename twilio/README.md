@@ -55,18 +55,39 @@ The first part (`http://api.website.com/new_post_request`) is the base URL, whil
 
 1. What would the request for your create_message look like (replace tokens with `[tokenName]` so as not to share this publicly)?
 
+  curl -X POST 'https://api.twilio.com/2010-04-01/Accounts/[UserID]/Messages.json' \
+  --data-urlencode 'To=8187318160'  \
+  --data-urlencode 'From=+14156912705'  \
+  --data-urlencode 'Body=sup' \
+  -u [UserID]:[AuthToken]
+
 2. What are the different attributes you are passing?
 
+  In this case, we are instructing cURL to URL-encode the values for the To, From
+  and Body fields. These are then stored into the body ("data") of the request.
+
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
+
+  Under the hood, all these wrapper libraries do is make HTTP requests using
+  whatever the environment provides to do that.
+
+  For example, the NodeJS wrapper probably uses the `request` standard library to make HTTP calls
+  to the Twilio service. It's doing the same thing that we did above, except programmatically
+  instead of through a specific CLI program. 
 
 4. What type of request is being made (select one)?
   - [ ] GET
   - [ ] PUT
-  - [ ] POST
+  - [X] POST
   - [ ] DELETE
 
 5. How does the API keep someone else from using this number to make a request?
 
+  The auth token is used as a secret. The only user who should have access to
+  this token is the user (or organization) that is associated with it in
+  Twilio's database. If the token is made public for whatever reason
+  (ex. it's accidentally committed) the auth token should immediately be replaced
+  on Twilio's end and the offending token should never be used again. 
 
 ##Resources
 [Twilio](http://eloquentjavascript.net/1st_edition/chapter8.html)

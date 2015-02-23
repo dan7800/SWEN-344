@@ -55,18 +55,36 @@ The first part (`http://api.website.com/new_post_request`) is the base URL, whil
 
 1. What would the request for your create_message look like (replace tokens with `[tokenName]` so as not to share this publicly)?
 
+In Python
+
+# Download the Python helper library from twilio.com/docs/python/install
+from twilio.rest import TwilioRestClient
+
+# Your Account Sid and Auth Token from twilio.com/user/account
+account_sid = "[accountsidToken]"
+auth_token = "{{ [authToken] }}"
+client = TwilioRestClient(account_sid, auth_token)
+message = client.messages.create(body="Test Message",
+to="+15555555555",
+from_="+15555555555")
+
 2. What are the different attributes you are passing?
 
+The format that everything is going to be transmitted in, the account it is coming from, the number it is going to, the number it is coming from, and the body of the message either a message or a media link.
+
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
+
+The wrappers take the API and convert it into something that the language is more familiar with and can easily work with. So it takes the high level calls and changes them into calls that can be made within the current language.
 
 4. What type of request is being made (select one)?
   - [ ] GET
   - [ ] PUT
-  - [ ] POST
+  - [X] POST
   - [ ] DELETE
 
 5. How does the API keep someone else from using this number to make a request?
 
+The API uses an authentication token which is unique to each user so in order for someone to be able to make a request with it they would need both the number and the token in order to.
 
 ##Resources
 [Twilio](http://eloquentjavascript.net/1st_edition/chapter8.html)

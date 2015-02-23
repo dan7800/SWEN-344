@@ -54,19 +54,30 @@ http://api.website.com/new_post_request?attr=my%20data&anotherParam=importantInf
 The first part (`http://api.website.com/new_post_request`) is the base URL, while the stuff that comes after is the params being passed. Typically in your web apps this will be wrapped in a request which contains other information like what kind of request(`GET`,`POST`, etc) and what kind of data are you passing (`JSON`,`XML`, etc).
 
 1. What would the request for your create_message look like (replace tokens with `[tokenName]` so as not to share this publicly)?
+POST 'https://api.twilio.com/2010-04-01/Accounts/[auth]/Messages.json' \
+--data-urlencode 'To=number'  \
+--data-urlencode 'From=from'  \
+--data-urlencode 'Body=body' \
+-u [auth]:[AuthToken]
 
 2. What are the different attributes you are passing?
+Auth - the authorization token for the request
+Body - the content of the message
+To - the number to send the message to
+From - the number that sends the message
 
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
+A wrapper for building a specific REST request puts together the params as key-value pairs to fit the expected format of the REST request.
+A REST Client assembles the request and sends the request to the URI for the desired API, listening for a response if necessary.
 
 4. What type of request is being made (select one)?
   - [ ] GET
   - [ ] PUT
-  - [ ] POST
+  - [X] POST
   - [ ] DELETE
 
 5. How does the API keep someone else from using this number to make a request?
-
+It uses the auth token to reserve the number only for a specific authorized user.
 
 ##Resources
 [Twilio](http://eloquentjavascript.net/1st_edition/chapter8.html)

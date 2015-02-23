@@ -28,6 +28,9 @@ namespace Calculate
 
         [OperationContract]
         int Divide(int num1, int num2);
+
+        [OperationContract]
+        decimal TempConvert(bool toC, decimal inTemp);
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

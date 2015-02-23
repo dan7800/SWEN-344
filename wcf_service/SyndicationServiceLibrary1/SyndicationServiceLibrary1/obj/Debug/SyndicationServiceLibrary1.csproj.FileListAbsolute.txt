@@ -1,6 +1,0 @@
-C:\Users\jhoss_000\SWEN-344\wcf_service\SyndicationServiceLibrary1\SyndicationServiceLibrary1\bin\Debug\SyndicationServiceLibrary1.dll.config
-C:\Users\jhoss_000\SWEN-344\wcf_service\SyndicationServiceLibrary1\SyndicationServiceLibrary1\bin\Debug\SyndicationServiceLibrary1.dll
-C:\Users\jhoss_000\SWEN-344\wcf_service\SyndicationServiceLibrary1\SyndicationServiceLibrary1\bin\Debug\SyndicationServiceLibrary1.pdb
-C:\Users\jhoss_000\SWEN-344\wcf_service\SyndicationServiceLibrary1\SyndicationServiceLibrary1\obj\Debug\SyndicationServiceLibrary1.dll
-C:\Users\jhoss_000\SWEN-344\wcf_service\SyndicationServiceLibrary1\SyndicationServiceLibrary1\obj\Debug\SyndicationServiceLibrary1.pdb
-C:\Users\jhoss_000\SWEN-344\wcf_service\SyndicationServiceLibrary1\SyndicationServiceLibrary1\obj\Debug\SyndicationServiceLibrary1.csprojResolveAssemblyReference.cache

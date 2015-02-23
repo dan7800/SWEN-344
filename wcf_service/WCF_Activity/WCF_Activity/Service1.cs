@@ -55,11 +55,13 @@ namespace WCF_Activity
             }
         }
 
+        //This function converts a celsius temperature to a farenheit one.
         public double cToF(double temp)
         {
             return (temp * (9 / 5)) + 32;
         }
 
+        //This function converts a farenheit temperature to a celsius one.
         public double fToC(double temp)
         {
             return (temp - 32) * (5 / 9);

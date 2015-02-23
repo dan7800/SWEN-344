@@ -55,17 +55,27 @@ The first part (`http://api.website.com/new_post_request`) is the base URL, whil
 
 1. What would the request for your create_message look like (replace tokens with `[tokenName]` so as not to share this publicly)?
 
+```
+https://api.twilio.com/2010-04-01/Accounts/AC4ef6560c936f0eaf2aee26b3223b6749/Messages.json?To='[MyPhoneNumber]'&From='+14133767220'&Body='This is a test of the emergency broadcast system.'&u='AC4ef6560c936f0eaf2aee26b3223b6749:[AuthToken]'
+```
+
 2. What are the different attributes you are passing?
+  - To: The phone to send to
+  - From: The Twilio number to send from
+  - Body: The message text
+  - u: My user and auth token
 
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
+  - They use Twilio custom code to make a POST request behind the scenes.
 
 4. What type of request is being made (select one)?
   - [ ] GET
   - [ ] PUT
-  - [ ] POST
+  - [X] POST
   - [ ] DELETE
 
 5. How does the API keep someone else from using this number to make a request?
+  - The account name and auth token are unique to my account.
 
 
 ##Resources

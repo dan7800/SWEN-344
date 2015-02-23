@@ -1,0 +1,6 @@
+c:\users\corban\documents\visual studio 2012\Projects\Calculate\Calculate\obj\Debug\Calculate.csprojResolveAssemblyReference.cache
+c:\users\corban\documents\visual studio 2012\Projects\Calculate\Calculate\bin\Debug\Calculate.dll.config
+c:\users\corban\documents\visual studio 2012\Projects\Calculate\Calculate\bin\Debug\Calculate.dll
+c:\users\corban\documents\visual studio 2012\Projects\Calculate\Calculate\bin\Debug\Calculate.pdb
+c:\users\corban\documents\visual studio 2012\Projects\Calculate\Calculate\obj\Debug\Calculate.dll
+c:\users\corban\documents\visual studio 2012\Projects\Calculate\Calculate\obj\Debug\Calculate.pdb

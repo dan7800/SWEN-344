@@ -1,0 +1,6 @@
+C:\Users\Nsama\webeng\wcf_service\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll.config
+C:\Users\Nsama\webeng\wcf_service\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll
+C:\Users\Nsama\webeng\wcf_service\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.pdb
+C:\Users\Nsama\webeng\wcf_service\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.csprojResolveAssemblyReference.cache
+C:\Users\Nsama\webeng\wcf_service\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.dll
+C:\Users\Nsama\webeng\wcf_service\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.pdb

@@ -1,0 +1,6 @@
+C:\Users\Vasta\Documents\SWEN-344\wcf_service\WcfServiceLibraryActivity\WcfServiceLibraryActivity\obj\Debug\WcfServiceLibraryActivity.csprojResolveAssemblyReference.cache
+C:\Users\Vasta\Documents\SWEN-344\wcf_service\WcfServiceLibraryActivity\WcfServiceLibraryActivity\bin\Debug\WcfServiceLibraryActivity.dll.config
+C:\Users\Vasta\Documents\SWEN-344\wcf_service\WcfServiceLibraryActivity\WcfServiceLibraryActivity\bin\Debug\WcfServiceLibraryActivity.dll
+C:\Users\Vasta\Documents\SWEN-344\wcf_service\WcfServiceLibraryActivity\WcfServiceLibraryActivity\bin\Debug\WcfServiceLibraryActivity.pdb
+C:\Users\Vasta\Documents\SWEN-344\wcf_service\WcfServiceLibraryActivity\WcfServiceLibraryActivity\obj\Debug\WcfServiceLibraryActivity.dll
+C:\Users\Vasta\Documents\SWEN-344\wcf_service\WcfServiceLibraryActivity\WcfServiceLibraryActivity\obj\Debug\WcfServiceLibraryActivity.pdb

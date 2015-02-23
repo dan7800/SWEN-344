@@ -55,17 +55,30 @@ The first part (`http://api.website.com/new_post_request`) is the base URL, whil
 
 1. What would the request for your create_message look like (replace tokens with `[tokenName]` so as not to share this publicly)?
 
+curl -X POST 'https://api.twilio.com/2010-04-01/Accounts/ACd443110d227468dff12eaa2334ae28dc/Messages.json'
+--data-urlencode 'To=[phoneNumber]'  
+--data-urlencode 'From=[twilioNumber]'
+--data-urlencode 'Body=Test Message'
+-d 'MediaUrl=[imageURL]'
+-u [twilioID]:[AuthToken]
+
 2. What are the different attributes you are passing?
 
+We are passing twilios user id, the recipient's phone number, the twilio account's number, the message text, an optional image URL, and the authentication token for the given twilio account.
+
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
+
+The wrappers are most likely creating the URI in the proper format for twilio's servers to accept the request. This may involve seperating out parameters with unique characters (?, &, %) and generating the headers with the proper authentication details
 
 4. What type of request is being made (select one)?
   - [ ] GET
   - [ ] PUT
-  - [ ] POST
+  - [ X ] POST
   - [ ] DELETE
 
 5. How does the API keep someone else from using this number to make a request?
+
+The API most likely authenticates the user credentials via the account_sid and the auth_token. If these are incorrect the request will be rejected.
 
 
 ##Resources

@@ -35,6 +35,7 @@ ul#comment_list .author {
 }
 
 form#new_comment {
+  display:none;
   width: 360px;
   background-color: #777;
   padding: 6px;

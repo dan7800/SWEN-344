@@ -1,0 +1,5 @@
+E:\Projects\WcfWebEng\WcfWebEng\bin\WcfWebEng.dll
+E:\Projects\WcfWebEng\WcfWebEng\bin\WcfWebEng.pdb
+E:\Projects\WcfWebEng\WcfWebEng\obj\Debug\WcfWebEng.csprojResolveAssemblyReference.cache
+E:\Projects\WcfWebEng\WcfWebEng\obj\Debug\WcfWebEng.dll
+E:\Projects\WcfWebEng\WcfWebEng\obj\Debug\WcfWebEng.pdb

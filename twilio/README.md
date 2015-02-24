@@ -54,18 +54,22 @@ http://api.website.com/new_post_request?attr=my%20data&anotherParam=importantInf
 The first part (`http://api.website.com/new_post_request`) is the base URL, while the stuff that comes after is the params being passed. Typically in your web apps this will be wrapped in a request which contains other information like what kind of request(`GET`,`POST`, etc) and what kind of data are you passing (`JSON`,`XML`, etc).
 
 1. What would the request for your create_message look like (replace tokens with `[tokenName]` so as not to share this publicly)?
+/2010-04-01/Accounts/{AccountSid}/Messages
 
 2. What are the different attributes you are passing?
+The message format, the number it's going to, the number that it's coming from.
 
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
+The wrappers are making these URI requests behind the scenes and parsing out the information from the response.
 
 4. What type of request is being made (select one)?
   - [ ] GET
   - [ ] PUT
-  - [ ] POST
+  - [x] POST
   - [ ] DELETE
 
 5. How does the API keep someone else from using this number to make a request?
+It uses auth tokens to ensure that the correct user is making the request.
 
 
 ##Resources

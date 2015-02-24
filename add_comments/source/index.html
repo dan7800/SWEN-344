@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="main.css">
   <title>Add Comments</title>
 </head>
@@ -20,8 +21,13 @@
       </li>
     </ul>
 
+    <form id="new_comment" hidden>
+    	<textarea id="comment"></textarea>
+    	<input id="author" value="Please enter your name">
+    	<input type="submit" value="Submit" id="submit_comment">
+    </form>
 
-    <button id="new_comment_button">New Comment</button>
+    <button id="new_comment_button" onclick="">New Comment</button>
   </div>
   <script src="jquery-1.10.js"></script>
   <script src="comments.js"></script>

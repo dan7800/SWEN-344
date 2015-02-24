@@ -55,17 +55,26 @@ The first part (`http://api.website.com/new_post_request`) is the base URL, whil
 
 1. What would the request for your create_message look like (replace tokens with `[tokenName]` so as not to share this publicly)?
 
+curl -X POST 'https://api.twilio.com/2010-04-01/Accounts/[tokenName]/Messages.json' \
+--data-urlencode 'To=911'  \
+--data-urlencode 'From=+18143153766'  \
+--data-urlencode 'Body=hello world' \
+-u [tokenName]
+
 2. What are the different attributes you are passing?
+Phone number sender, phone number receiver, message body, token
 
 3. Briefly explain how the wrappers in the code examples might be working behind the scenes.
+they construct an http request with uri and payload
 
 4. What type of request is being made (select one)?
   - [ ] GET
   - [ ] PUT
-  - [ ] POST
+  - [X] POST
   - [ ] DELETE
 
 5. How does the API keep someone else from using this number to make a request?
+The authentication token
 
 
 ##Resources

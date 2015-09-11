@@ -1,0 +1,4 @@
+\\mightor\home\faculty\dkrutz\documents\visual studio 2010\Projects\WebService1\WebService1\bin\WebService1.dll
+\\mightor\home\faculty\dkrutz\documents\visual studio 2010\Projects\WebService1\WebService1\bin\WebService1.pdb
+\\mightor\home\faculty\dkrutz\documents\visual studio 2010\Projects\WebService1\WebService1\obj\Debug\WebService1.dll
+\\mightor\home\faculty\dkrutz\documents\visual studio 2010\Projects\WebService1\WebService1\obj\Debug\WebService1.pdb

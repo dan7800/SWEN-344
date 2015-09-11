@@ -1,0 +1,8 @@
+\\mightor\home\faculty\dkrutz\documents\visual studio 2010\Projects\WebApplication3\WebApplication3\bin\WebApplication3.dll
+\\mightor\home\faculty\dkrutz\documents\visual studio 2010\Projects\WebApplication3\WebApplication3\bin\WebApplication3.pdb
+\\mightor\home\faculty\dkrutz\documents\visual studio 2010\Projects\WebApplication3\WebApplication3\obj\Debug\WebApplication3.dll
+\\mightor\home\faculty\dkrutz\documents\visual studio 2010\Projects\WebApplication3\WebApplication3\obj\Debug\WebApplication3.pdb
+E:\GIT\RIT\personalCourses\SWEN-344\Examples\API\Weather\WebApplication3\bin\WebApplication3.dll
+E:\GIT\RIT\personalCourses\SWEN-344\Examples\API\Weather\WebApplication3\bin\WebApplication3.pdb
+E:\GIT\RIT\personalCourses\SWEN-344\Examples\API\Weather\WebApplication3\obj\Debug\WebApplication3.dll
+E:\GIT\RIT\personalCourses\SWEN-344\Examples\API\Weather\WebApplication3\obj\Debug\WebApplication3.pdb

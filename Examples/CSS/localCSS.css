@@ -1,0 +1,45 @@
+h2 {
+     color: #680000;
+     text-align: left;
+     font-size: 1.5em;
+}
+
+
+/* Start Pad the page */
+p.padding {
+    padding-left: 2cm;
+}
+p.padding2 {
+    padding-left: 50%;
+}
+/* End Pad the page */
+
+
+/* Start Header */
+ul {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+a {
+    float: left;
+    width: 6em;
+    text-decoration: none;
+    color: white;
+    background-color: purple;
+    padding: 0.2em 0.6em;
+    border-right: 1px solid white;
+}
+
+a:hover {
+    background-color: fuchsia;
+}
+
+li {
+    display: inline;
+}
+
+/* End Header */

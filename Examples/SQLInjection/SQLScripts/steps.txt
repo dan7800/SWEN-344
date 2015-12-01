@@ -1,0 +1,7 @@
+This SQL injection example is meant to run with .Net & SQL Server (express is ok)
+
+
+1) Ensure that SQL Express is downloaded. This may be downloaded from the RIT SE MSDN site.
+2) Run the SQL Script to create the schema & necessary data.
+3) Alter the information in the web.config file to connect to your DB instance.
+4) Enjoy

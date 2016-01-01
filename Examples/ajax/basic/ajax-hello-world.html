@@ -1,0 +1,37 @@
+<html>
+<head>
+<script type="text/javascript">
+function loadInfo()
+{
+var a;
+ 
+    if (window.XMLHttpRequest)
+    {// If the browser if IE7+[or]Firefox[or]Chrome[or]Opera[or]Safari
+      a=new XMLHttpRequest();
+    }
+   else
+    {//If browser is IE6, IE5
+      a=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+ 
+a.onreadystatechange=function()
+{
+  if (a.readyState==4 && a.status==200)
+  {
+    document.getElementById("myDiv").innerHTML=a.responseText;
+   }
+}
+ 
+a.open("POST","ServerMessage.txt",true);   // This is the file which should be opened
+a.send();
+} // fun1() close
+</script>
+</head>
+<body>
+<h3>A Simple AJAX Example</h3>
+ 
+<div id="myDiv" style="width: 300px; height: 30px;">Click on the button below</div>
+<button type="button" onclick="loadInfo()">LoadInfo</button>
+ 
+</body>
+</html>

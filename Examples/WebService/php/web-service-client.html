@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type='text/javascript'>
+      function sendRequest() {
+        // get the two values as numbers
+        var num1 = parseInt(document.getElementById('num1').value);
+        var num2 = parseInt(document.getElementById('num2').value);
+
+        // build the XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'web-service.php');
+
+        // mark the request as one containing json
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        // just alert the response data when it comes back
+        xhr.onload = function() {
+          var res = JSON.parse(xhr.responseText);
+
+          if (xhr.status === 200) { // OK
+            alert('The sum is: ' + res.sum);
+          } else {
+            alert('There was an error: ' + res.error);
+          }
+        };
+
+        // send the request
+        xhr.send(JSON.stringify({num1: num1, num2: num2}));
+      };
+    </script>
+    <title> Web Service Client </title>
+  </head>
+
+  <body>
+    <input type='number' id='num1' />
+    <input type='number' id='num2' />
+    <button onclick='sendRequest()'>Submit</button>
+  </body>
+</html>
+

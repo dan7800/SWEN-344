@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+ 	<title>Music Finder</title>
+	<style>
+		body {
+			text-align: center;
+		}
+		
+		.day {
+			display: inline-block;
+			border: 1px solid black;
+			margin: 0.5em;
+			width: 25%;
+			vertical-align: top;
+		}
+		
+		ul {
+			text-align: left;
+		}
+		
+		li {
+			display: inline-block;
+			width: 25%;
+		}
+		li.desc {
+			width: 40%;
+		}
+	</style>
+	
+	<!-- Import jQuery -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+ 
+  <script>
+
+	var WEATHER_URL = 'http://api.openweathermap.org/data/2.5/forecast';
+	var API_KEY = "84d29ff04cd27975b2c248d35f21fdba";
+
+	window.onload = init;
+	
+	function init(){
+		document.querySelector("#search").onclick = getData;
+	}
+	
+	// fetch the data
+	function getData(){
+		// build the URL string
+		var url = WEATHER_URL;
+		url +=  '?appid='+API_KEY;
+		url += "&q=";
+		
+		// get search term
+		var value = document.querySelector("#searchterm").value;
+		
+		// get rid of leading and trailing spaces
+		value = value.trim();
+		
+		// if there's no input to search then don't bother
+		if(value.length < 1) return;
+		
+		//tell the user what's going on
+		document.querySelector("#content").innerHTML = "<b>Getting weather for " + value + "</b>";
+		
+		// make sure it's URI safe
+		value = encodeURI(value); 
+		
+		// add it to the query so it actually gets relevant information
+		// the ,us lets us use US postal codes
+		url += value+",us";
+		
+		// actually fetch the file
+		$("#content").fadeOut(250);
+		$.getJSON(url).done(function(data){jsonLoaded(data);});
+	}
+	
+	function roundToHundredths(decimal) {
+		return Math.floor(decimal*100)/100.0;
+	}
+	
+	function kelvinToFahrenheit(degrees) {
+		return roundToHundredths((degrees-273.15)*1.8+32,-2);
+	}
+	
+	function jsonLoaded(obj){		
+		if(obj.cod == '404'){
+			console.log("message=" + obj.message);
+			document.querySelector("#content").innerHTML = "<b>No Results Found</b>";
+		} else {
+			var forecast = obj.list;
+			console.log("forecast.length = " + forecast.length);
+			console.log(forecast[0]);
+			var html = "";
+			
+			var lastDate = "";
+			
+			for (var i=0;i<forecast.length;i++){
+				var item = forecast[i];
+				var tempInfo = item.main;
+				var tempInK = tempInfo.temp;
+				var weather = item.weather;
+				var description = weather[0].description;
+				var datetime = item.dt_txt;
+				var date = datetime.substring(0,datetime.indexOf(" "));
+				var time = datetime.substring(datetime.indexOf(" ")+1);
+				
+				var line = "";
+				
+				if(date != lastDate) {
+					if(i != 0) {
+						line += "</div>";
+					}
+					line += '<div class="day">';
+					line += "<h3>"+date+"</h3>";
+					line += "<ul>";
+					line += "<li>Time</li>";
+					line += "<li>Temp (F)</li>";
+					line += '<li class="desc">Description</li>';
+					line += "</ul>";
+					lastDate = date;
+				}
+				
+				line += "<ul>";
+				line += "<li>"+time+"</li>";
+				line += "<li>"+kelvinToFahrenheit(tempInK)+"</li>";
+				line += '<li class="desc">'+description+'</li>';
+				line += "</ul>";
+				
+				html += line;
+			}
+			//close out the last day
+			html += "</div>";
+			document.querySelector("#content").innerHTML = html;
+			
+			$("#content").fadeIn(1000);	
+		}
+	}	
+  
+  
+  
+  </script>
+  
+  
+</head>
+<body>
+ <h1>Weather Forecast</h1>
+
+
+Enter zipcode or city: <input id="searchterm" type="text" size="20" maxlength="20" value="14623" /> 
+<button type="button" id="search">Search</button>
+ <div id="content">
+ <p>Enter a search to see the weather.</p>
+ </div>
+ 
+
+</body>
+</html>

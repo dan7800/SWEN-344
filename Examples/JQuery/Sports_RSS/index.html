@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+ 	<title>NHL News</title>
+	<!-- Import jQuery -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	
+	<style>
+		body {
+			max-width: 800px;
+			margin: auto;
+			text-align: center;
+		}
+		/* reset styling */
+		body * {
+			margin: 0;
+			padding: 0;
+		}
+		
+		#header * {
+			display: inline-block;
+			vertical-align: middle;
+			padding-left: 1em;
+			padding-right: 1em;
+		}
+		
+		.item {
+			border: 1px solid red;
+			padding: 1em;
+			margin: 0.5em;
+			text-align: left;
+		}
+		
+		.item h2 {
+			font-size: 120%;
+			padding-bottom: 0.2em;
+		}
+		
+		/* not used right now because the descriptions are the same as the titles */
+		.item p {
+			padding-top: 0.2em;
+		}
+	</style>
+ 
+	<script>
+		//this forces javascript to conform to some rules, like declaring variables with var
+		"use strict";
+	  
+		window.onload = init;
+		
+		function init(){
+			//NHL URL for ESPN RSS feed
+			var url = "http://espn.go.com/espn/rss/nhl/news";
+			
+			document.querySelector("#content").innerHTML = "<b>Loading news...</b>";
+			$("#content").fadeOut(250);
+			//fetch the data
+			$.get(url).done(function(data){xmlLoaded(data);});
+		}
+		
+		
+		function xmlLoaded(obj){
+			console.log("obj = " +obj);
+
+			var items = obj.querySelectorAll("item");
+			
+			//show the logo
+			var image = obj.querySelector("image")
+			var logoSrc = image.querySelector("url").firstChild.nodeValue;
+			var logoLink = image.querySelector("link").firstChild.nodeValue;
+			$("#logo").attr("src",logoSrc);
+			
+			//parse the data
+			var html = "";
+			for (var i=0;i<items.length;i++){
+				//get the data out of the item
+				var newsItem = items[i];
+				var title = newsItem.querySelector("title").firstChild.nodeValue;
+				console.log(title);
+				var description = newsItem.querySelector("description").firstChild.nodeValue;
+				var link = newsItem.querySelector("link").firstChild.nodeValue;
+				var pubDate = newsItem.querySelector("pubDate").firstChild.nodeValue;
+				
+				//present the item as HTML
+				var line = '<div class="item">';
+				line += "<h2>"+title+"</h2>";
+				line += '<p><i>'+pubDate+'</i> - <a href="'+link+'" target="_blank">See original</a></p>';
+				//title and description are always the same (for some reason) so I'm only including one
+				//line += "<p>"+description+"</p>";
+				line += "</div>";
+				
+				html += line;
+			}
+			document.querySelector("#content").innerHTML = html;
+				
+			$("#content").fadeIn(1000);
+		
+		}	
+	  
+	  
+	  
+	</script>
+  
+  
+</head>
+<body>
+
+	<div id="header">
+		<img id="logo" /><h1>NHL News</h1>
+	</div>
+
+	<div id="content">
+		<p>No data has been loaded.</p>
+	</div>
+ 
+
+</body>
+</html>

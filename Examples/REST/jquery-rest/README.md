@@ -5,6 +5,8 @@
 To run this example, upload the two files to a directory on your SE public_html. Normally it would work from anywhere,
 but the browser's Cross-origin resource sharing (CORS) security policy prevents pages from making XMLHTTP requests to a different domain in most cases.
 
+Or view it live at: http://www.se.rit.edu/~kwm4385/rest/
+
 ## About
 
 This example uses a simple html page and javascript to load data from the weather API and display it, both using jQuery. 

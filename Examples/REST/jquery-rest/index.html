@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather R Us</title>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <script type="text/javascript" src="weather.js"></script>
+    </head>
+    <body>
+        <h1>Weather R Us</h1>
+     
+        <h3>Select your zip:</h3>
+        <ul id="ziplist"></ul>
+        
+        <label for="zip">Enter your zip: <input type="number" name="zip" id="zip-input"/></label>
+        <button id="submit-zip">Search</button>
+        
+        <div id="forecast-section" style="display:none">
+        <hr/>
+            <h3>Your local forecast</h3>
+            <p>
+                <strong>Name:</strong>
+                <span id="name"></span>
+            </p>
+            <p>
+                <strong>Forecast:</strong>
+                <span id="forecast"></span>
+            </p>
+            <img id="image" src=""/>
+        </div>
+    </body>
+</html>

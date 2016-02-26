@@ -3,7 +3,7 @@
 ## Running
 
 To run this example, upload the two files to a directory on your SE public_html. Normally it would work from anywhere,
-but the browser's Cross-Origin Request Security (CORS) prevents pages from making XMLHTTP requests to a different domain in most cases.
+but the browser's Cross-origin resource sharing (CORS) security policy prevents pages from making XMLHTTP requests to a different domain in most cases.
 
 ## About
 

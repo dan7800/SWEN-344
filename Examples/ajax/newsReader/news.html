@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<title>Ajax RSS News reader - BBC</title>
+
+<base href="http://www.nigelcrawley.co.uk/bbc/" />
+
+<link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
+
+<meta name="description" content="BBC News feed browser" />
+<meta name="revisit-after" content="30 days" />
+
+<meta name="author" content="Nigel Crawley Chartered Designer" />
+<meta name="copyright" content="Copyright (c) 2005 Nigel Crawley" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="MSSmartTagsPreventParsing" content="TRUE" />
+
+<script src="bbcajax.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+// <![CDATA[
+//ATTACH EVENT FUNCTIONS WHEN PAGE LOADS
+window.onload = function() {
+  if(document.getElementById) {
+    // "Category" select element change;
+    document.getElementById('categs').onchange = function() {
+      // loads chosen XML document, clears News list
+      try {
+        if (this.selectedIndex > 0) {
+          loadXMLDoc('xmload.php?fn=' + this.options[this.selectedIndex].value);
+        } 
+      }
+      catch(e) {
+        var msg = (typeof e == "string") ? e : ((e.message) ? e.message : "Unknown Error");
+        alert("Unable to get XML data:\n" + msg);
+        return;
+      }
+      this.blur();
+    }
+  }
+  //make all links load into top window
+  var mainlinks = document.getElementsByTagName('a');
+  for(var i=0; i<mainlinks.length; i++) {
+    mainlinks.item(i).onclick = function() {
+      window.top.location = this.href;
+      return false;
+    }
+  }
+  //RESET FORM
+  document.forms[0].reset();
+}
+// ]]>
+</script>
+
+<style type="text/css" media="screen">
+/* <![CDATA[ */
+@import "screen.css";
+/* ]]> */
+</style>
+
+</head>
+<body>
+<form>
+<h1>Ajax powered<br />BBC News RSS Reader example</h1>
+<div id="Shadow">
+  <div id="Wrapper">
+    <h2><span>BBC News</span></h2>
+    <p id="whichFeed"><small>First Choose a News Feed</small></p>
+    <p id="feedDate"><small>...</small></p>
+    <div id="outdetails"><div id="details"><p>Click on a News item's headline to go to it's page on the BBC website.</p></div></div>
+    <p id="catp">
+    <select id="categs">
+      <option value="" selected="selected">Choose Feed</option>
+      <option value="1">UK News</option>
+      <option value="2">Technology</option>
+      <option value="3">Business</option>
+      <option value="5">Entertainment</option>
+      <option value="6">Health</option>
+      <option value="7">Education</option>
+    </select>
+    </p>
+    <p id="Footer">
+    <small><a href="http://www.nigelcrawley.co.uk/" title="Visit my website">Design</a> and <a href="http://www.adaptivepath.com/publications/essays/archives/000385.php" title="More about Ajax">Ajax</a> development by Nigel Crawley<br />supported by <a href="http://backstage.bbc.co.uk/">backstage.bbc.co.uk</a></small>
+    </p>
+  </div>
+</div>
+<p id="mailLink">To help me with browser testing, please take a screen-shot of this web page and send it to me using this <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%6E%63%40%6E%69%67%65%6C%63%72%61%77%6C%65%79%2E%63%6F%2E%75%6B?subject=BBC%20RSS%20Reader%20feedback&amp;body=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/537.86.3">mail-to-link</a>. The mail-to-link will automatically add your browser details to the e-mail. Thankyou.<br />&nbsp;<br /><strong>Latest</strong>: I've now made the above available as a FREE Mac OS X Dashboard Widget - <a href="http://www.nigelcrawley.co.uk/widgets/bbcticker.wdgt.zip" title="FREE Dashboard Widget">Click here to download it</a></p>
+</form>
+</body>
+</html>
+

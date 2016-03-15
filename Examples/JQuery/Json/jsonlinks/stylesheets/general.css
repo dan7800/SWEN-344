@@ -1,0 +1,211 @@
+/*
+  Copyright 2014, MV Develop PR.
+  http://mvdevelop.com/
+
+  Licensed under the MIT license.
+  http://www.opensource.org/licenses/mit-license.php
+
+  Created by: vladan@mvdevelop.com
+  Maintained by: vladan@mvdevelop.com
+*/
+
+/* Reset */
+
+html {
+	color: #000;
+	background: #FFF;
+}
+
+body, div, dl, dt, dd, ul, ol, li,
+h1, h2, h3, h4, h5, h6, pre, code,
+form, fieldset, legend, input, textarea,
+p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+}
+
+article, aside, audio, canvas, command, 
+datalist, details, embed, figcaption, 
+figure, footer, header, hgroup, keygen, 
+meter, nav, output, progress, section, 
+source, video {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+mark, rp, rt, ruby, summary, time {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+fieldset, img {
+	border: 0;
+}
+
+address, caption, cite, code, dfn,
+strong, em, th, var {
+	font-style: normal;
+	font-weight: normal;
+}
+
+li {
+	list-style: none;
+}
+
+caption, th {
+	text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+q:before, q:after {
+	content:'';
+}
+
+abbr, acronym {
+	border: 0;
+	font-variant: normal;
+}
+
+sup {
+	vertical-align: text-top;
+}
+
+sub {
+	vertical-align: text-bottom;
+}
+
+input, textarea, select {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+}
+
+legend {
+	color: #000;
+}
+
+.clearfix:after { /* ie.css, ie7.css */
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+
+a, a:active {
+	outline: none;
+}
+
+img {
+	display: block;
+}
+
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+strong em, em strong {
+	font-weight: bold;
+	font-style: italic;
+}
+
+/* General Styling */
+
+html {
+  background: #dfebeb;
+}
+
+body {
+  font-family: "Helvetica Nue", "Helvetica", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 20px;
+  color: #333;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 44px;
+  margin-bottom: 50px;
+  color: #2697d3;
+  text-align: center;
+  font-family: 'Trebuchet MS', Helvetica, Arial, sans-serif;
+}
+
+.wrap {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .wrap {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+}
+
+.header {
+  height: 50px;
+  margin-bottom: 40px;
+  padding: 10px 0;
+  background: #2697d3;
+}
+
+.logo {
+  width: 194px;
+  margin: 0 auto;
+}
+
+.logo img {
+  display: inline-block;
+}
+
+.back {
+  float: left;
+}
+
+.back {
+  margin-top: 13px;
+  display: inline-block;
+  line-height: 22px;
+  height: 22px;
+  padding: 0 10px;
+  box-shadow: none;
+  border: 1px solid #7dc8f0;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  color: #fff;
+  text-decoration: none;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7dc8f0), to(#69b7e1));
+  background-image: -webkit-linear-gradient(top, #7dc8f0, #69b7e1);
+  background-image: -moz-linear-gradient(top, #7dc8f0, #69b7e1);
+  background-image: -ms-linear-gradient(top, #7dc8f0, #69b7e1);
+  background-image: -o-linear-gradient(top, #7dc8f0, #69b7e1);
+  text-shadow: none;
+}
+
+.back:hover {
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#045b8a), to(#0f80be));
+  background-image: -webkit-linear-gradient(top, #045b8a, #0f80be);
+  background-image: -moz-linear-gradient(top, #045b8a, #0f80be);
+  background-image: -ms-linear-gradient(top, #045b8a, #0f80be);
+  background-image: -o-linear-gradient(top, #045b8a, #0f80be);
+}

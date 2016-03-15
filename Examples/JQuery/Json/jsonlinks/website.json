@@ -1,0 +1,32 @@
+[
+	{
+		"title": "Smashing Magazine",
+		"img": "images/example/smashing.jpg",
+		"url": "http://www.smashingmagazine.com/",
+		"info": "Smashing Magazine is an online magazine for professional Web designers and developers, with a focus on useful techniques, best practices and valuable resources."
+	},
+	{
+		"title": "InstantShift",
+		"img": "images/example/instant.jpg",
+		"url": "http://www.instantshift.com/",
+		"info": "InstantShift is leading design and inspiration related community for web designers and developers daily resources and premium web design and development platform. iShift is the light chronicle moments of knowledge about design sphere, created as world moving forward, Daily Resource for Web Designers and Developers."
+	},
+	{
+		"title": "Speckyboy",
+		"img": "images/example/speckyboy.jpg",
+		"url": "http://speckyboy.com/",
+		"info": "Speckyboy is an online magazine for web designers with its focus on highlighting resources, exploring new techniques, and inspiring."
+	},
+	{
+		"title": "Codrops",
+		"img": "images/example/codrops.jpg",
+		"url": "http://tympanus.net/codrops/",
+		"info": "Codrops is dedicated to provide useful tutorials, insightful articles, creative inspiration and free resources for web designers and developers."
+	},
+	{
+		"title": "Webdesigner Depot",
+		"img": "images/example/depot.jpg",
+		"url": "http://www.webdesignerdepot.com/",
+		"info": "Web Design Resources for Web Designers. We include Photoshop Tutorials, WordPress Plugins, and Web Development tools. Download free icons, Photoshop brushes and tools for web and graphic designers"
+	}
+]

@@ -1,0 +1,77 @@
+/*
+	Copyright 2014, MV Develop
+	http://mvdevelop.com/
+
+	Licensed under the MIT license.
+	http://www.opensource.org/licenses/mit-license.php
+
+	Created by: vladan@mvdevelop.com
+	Maintained by: vladan@mvdevelop.com
+*/
+
+.json-wrap {
+	margin-bottom: 20px;
+}
+
+.json-wrap h3 {
+	font-size: 16px;
+	padding-bottom: 4px;
+}
+
+.json-wrap h3 a:link,
+.json-wrap h3 a:visited {
+	color: #369;
+	text-decoration: none;
+}
+
+.site-list li {
+	padding-bottom: 20px;
+	border-bottom: 1px solid #fff;
+	margin-bottom: 16px;
+}
+
+.site-list li.last {
+	padding-bottom: 0;
+	border-bottom: none;
+	margin-bottom: 0;
+}
+
+.image-holder {
+	float: left;
+	width: 300px;
+	padding: 4px;
+	border: 1px solid #ccc;
+	background: #fff;
+	margin: 4px 20px 0 0;
+}
+
+.main-info {
+	width: 670px;
+	float: left;
+}
+
+.main-info h3 {
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 22px;
+	padding-bottom: 10px;
+}
+
+.info {
+	padding-bottom: 20px;
+}
+
+.url {
+	font-weight: bold;
+	padding-bottom: 0;
+}
+
+.url a:link,
+.url a:visited {
+	color: #2697d3;
+	text-decoration: none;
+}
+
+.url a:hover {
+	text-decoration: underline;
+}

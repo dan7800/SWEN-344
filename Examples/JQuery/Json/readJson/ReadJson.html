@@ -3,8 +3,25 @@
       <meta content = "text/html; charset = ISO-8859-1" http-equiv = "content-type">
     
       <script type = "application/javascript">
-         function loadJSON(){
-            var data_file = "data.json";
+         function loadJSON(person){
+
+            if(person=="Cool"){
+            //   alert("cool");
+               var data_file= "data.json";
+
+            }else{
+               //  alert("bad");
+               var data_file= "data2.json";
+              
+            }
+
+
+            // Clear out existing info
+            document.getElementById("Name").innerHTML = "-";
+            document.getElementById("Country").innerHTML = "-";
+
+
+
             var http_request = new XMLHttpRequest();
             try{
                // Opera 8.0+, Firefox, Chrome, Safari
@@ -50,18 +67,22 @@
    </head>
   
    <body>
-      <h1>Cricketer Details</h1>
+      <h1>People Info</h1>
     
+
       <table class = "src">
          <tr><th>Name</th><th>Country</th></tr>
-         <tr><td><div id = "Name">Sachin</div></td>
-         <td><div id = "Country">India</div></td></tr>
+         <tr><td><div id = "Name">-</div></td>
+         <td><div id = "Country">-</div></td></tr>
       </table>
 
-      <div class = "central">
-         <button type = "button" onclick = "loadJSON()">Update Details </button>
-      </div>
-    
+   <div class = "central">
+         <button type = "button" onclick = "loadJSON('Cool')">A Cool Person </button>
+         <button type = "button" onclick = "loadJSON('Bad')">A Bad Person </button>
+   </div>
+
+
+
    </body>
     
 </html>

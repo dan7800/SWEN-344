@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> RSS Reader Example </title>
+    <script type='text/javascript'>
+      var handleData = function(data) {
+        // data is a DOM-like object, so `querySelectorAll` works
+        const items = Array.from(data.querySelectorAll('item'));
+
+        // map the list of items into nodes for html
+        const nodes = items.map(function(item) {
+          // make a node for the title
+          const titleNode = document.createElement('strong');
+          titleNode.innerHTML = item.querySelector('title').textContent +
+            '&nbsp;';
+
+          // make a node for the date
+          const dateNode = document.createElement('em');
+          dateNode.innerHTML = item.querySelector('pubDate').textContent +
+            '&nbsp;';
+
+          // make a node for the link
+          const linkNode = document.createElement('a');
+          linkNode.href = item.querySelector('link').textContent;
+          linkNode.textContent = '(link)';
+
+          // make a node for everything
+          const articleNode = document.createElement('article');
+          articleNode.appendChild(titleNode);
+          articleNode.appendChild(dateNode);
+          articleNode.appendChild(linkNode);
+
+          return articleNode;
+        });
+
+        // clear out the container
+        const container = document.getElementById('content');
+        container.innerHTML = '';
+
+        // append them all to the container
+        nodes.forEach(function(node) {
+          container.appendChild(node);
+        });
+      };
+
+      var handleSelectionChange = function() {
+        // store the radio buttons as an array
+        const buttons = Array.from(document.querySelectorAll('input'));
+
+        // find the button that is checked and get its value
+        const league = buttons.find(function(button) {
+          return button.checked;
+        }).value;
+
+        const url = `http://espn.go.com/espn/rss/${league}/news`;
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url);
+
+        xhr.onload = function() {
+          if (xhr.status === 200) {
+            handleData(xhr.responseXML);
+          } else {
+            const container = document.querySelector('content');
+            container.innerHTML = '';
+            container.textValue = 'An error occured reading the stream';
+          }
+        };
+
+        xhr.send();
+      };
+
+      var init = function() {
+
+        // connect the change of event of the form to the method
+        document.querySelector('form').addEventListener('change',
+            handleSelectionChange);
+        
+        handleSelectionChange(); // call the method to simulate the first
+                                 // selection
+      };
+
+      // call init when the page has loaded
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1> RSS Reader Example </h1>
+    <form>
+      <input type='radio' name='sport' value='MLB' checked /> MLB <br />
+      <input type='radio' name='sport' value='NBA' /> NBA <br />
+      <input type='radio' name='sport' value='NFL' /> NFL <br />
+      <input type='radio' name='sport' value='NHL' /> NHL <br />
+    </form>
+
+    <div id='content' />
+  </body>
+</html>

@@ -1,0 +1,71 @@
+-- Create students
+
+delete from student;
+
+insert into student (Fname, Lname, Age) values ('Sam', 'Smith', 24);
+insert into student (Fname, Lname, Age) values ('Chuck', 'Norris', 61);
+insert into student (Fname, Lname, Age) values ('Queen', 'Latifa', 43);
+insert into student (Fname, Lname, Age) values ('King', 'Latifa', 46);
+insert into student (Fname, Lname, Age) values ('Jane', 'Doe', 12);
+insert into student (Fname, Lname, Age) values ('Bill', 'Doe', 23);
+
+select * from student;
+
+-- Create faculty
+
+
+delete from faculty;
+
+insert into faculty (firstname, lastname, Age) values ('Sam', 'Malachosky', 54);
+insert into faculty (firstname, lastname, Age) values ('Mike', 'Lutz', 61);
+insert into faculty (firstname, lastname, Age) values ('Jim ', 'Vallino', 27);
+insert into faculty (firstname, lastname, Age) values ('Tom', 'Riechlymyr', 46);
+
+
+select * from faculty;
+
+
+
+-- Course Information
+
+delete from Course;
+
+insert into Course (CourseName, Instructor) values ('Dance', 1);
+insert into Course (CourseName, Instructor) values ('Fighting', 1);
+insert into Course (CourseName, Instructor) values ('Dance Fighting',3);
+insert into Course (CourseName, Instructor) values ('Art', 4);
+
+
+
+select * from Course;
+
+
+-- Create associations
+
+
+delete from student_course;
+
+insert into student_course values (1,1);
+insert into student_course values (1,2);
+insert into student_course values (1,3);
+insert into student_course values (4,1);
+insert into student_course values (4,2); 
+insert into student_course values (3,4);
+insert into student_course values (3,3);
+insert into student_course values (4,3);
+
+select * from student_course;
+
+
+
+
+************
+
+Joins
+
+
+
+
+
+
+

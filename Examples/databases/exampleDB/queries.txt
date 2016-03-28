@@ -1,0 +1,24 @@
+-- Create a basic course join view
+
+
+-- Take some basic actions to drop the 
+drop view basic_course_view;
+create view basic_course_view as
+
+select *--CourseName, FirstName, LastName
+from student_course sc
+inner join course c on c.cid = sc.cid
+inner join faculty f on f.fid = c.instructor
+inner join student s on s.sid = sc.sid
+inner join (select count (sid) as studentCount, cid from student_course group by cid) scc on scc.cid = sc.cid
+
+
+
+
+-- Perform a join to show all "people" results
+
+drop view all_people_view;
+create view all_people_view as
+select fname, lname, age from student
+union 
+select Firstname, lastname, age from faculty

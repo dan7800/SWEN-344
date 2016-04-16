@@ -7,7 +7,7 @@
 
 <!-- Start Geo-Location -->
 <script type="text/javascript">
-    function showPosition(){
+    function showPosition_latlong(){
         if(navigator.geolocation){
             navigator.geolocation.getCurrentPosition(function(position){
                 var positionInfo = "Your current position is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
@@ -79,7 +79,7 @@ function showError(error){
 <div id="result">
         <!--Position information will be inserted here-->
     </div>
-    <button type="button" onclick="showPosition();">Show Position</button>
+    <button type="button" onclick="showPosition_latlong();">Show Position</button>
 
 
 <h1>Google Maps</h1>

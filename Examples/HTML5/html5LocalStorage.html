@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+
+<!-- Start Web Storage -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+// Check if the localStorage object exists
+if(localStorage){
+	$(document).ready(function(){
+		$(".save").click(function(){
+			// Get input name
+			var firstName = $("#firstName").val();
+			
+			// Store data
+    		localStorage.setItem("first_name", firstName);
+			alert("Your first name is saved.");
+		});
+		$(".access").click(function(){
+			// Retrieve data
+    		alert("Hi, " + localStorage.getItem("first_name"));
+		});
+	});
+} else{
+    alert("Sorry, your browser do not support local storage.");
+}
+</script>
+<!-- End Web Storage -->
+
+
+</head>
+
+<body>
+
+
+
+
+<!-- ******************************************* Web Storage **************************--> 
+
+<!-- HTML5 also supports the use of web storage.-->
+
+<h1>Web Storage</h1>
+<p>Save your name and then refresh the page. Open up a new tab.</p>
+	<form>
+    	<label>First Name: <input type="text" id="firstName"></label>
+        <button type="button" class="save">Save Name</button>
+        <button type="button" class="access">Get Name</button>
+    </form>
+
+
+
+
+</body>
+
+
+
+</html>

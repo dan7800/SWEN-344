@@ -36,12 +36,17 @@
 <h1>Validations</h1>
 
 
-		<label>
+	<label>
          Email Address: <input type="email" name="mycolor" required>
         </label>
         <label>
             Website URL: <input type="url" name="mywebsite" required>
         </label>
+        
+        <label>
+          Telephone number: <input type="tel" pattern="\d{3}[\-]\d{3}[\-]\d{4}" name="phonenumber" required>
+        </label>
+
 
 
 

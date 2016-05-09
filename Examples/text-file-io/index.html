@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type='text/javascript'>
+      const namesToDisplay = [];
+
+      /* add appropriate event listeners */
+      const prepareEvents = function() {
+        const button = document.getElementById('btn');
+
+        button.addEventListener('click', handleInput);
+      };
+
+      /* pull data from the api and update the state with the names */
+      const getDataFromTextFile = function() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'names.php');
+        xhr.addEventListener('load', function() {
+          const response = JSON.parse(this.responseText);
+          const remoteNames = response.filter((n) => n.length); // make sure we
+                                                                // axe empties
+
+          remoteNames.forEach((n) => namesToDisplay.push(n));
+          updateDisplayedNames();
+        });
+
+        xhr.send();
+      };
+
+      /* get the value of the text box and submit it */
+      const handleInput = function() {
+        const name = document.getElementById('name').value;
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'names.php');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.addEventListener('load', function() {
+          if (this.status === 201) { // we've successfully posted
+            namesToDisplay.push(name);
+            updateDisplayedNames();
+          }
+        });
+
+        xhr.send(JSON.stringify({name}));
+      }
+
+      /* take the list of names and display it on screen */
+      const updateDisplayedNames = function() {
+        const list = document.createElement('ul');
+
+        namesToDisplay.forEach(function(name) {
+          const li = document.createElement('li');
+          li.textContent = name;
+
+          list.appendChild(li);
+        });
+
+        const container = document.getElementById('container');
+        container.innerHTML = ''; // empty the container
+        
+        container.appendChild(list);
+      }
+
+      window.onload = function() {
+        // setup events
+        prepareEvents();
+
+        // load initial data
+        getDataFromTextFile();
+      };
+    </script>
+  </head>
+  <body>
+    Name:
+    <input type='text' id='name' />
+    <button id='btn'>Submit</button>
+    <div id='container' />
+  </body>
+</html>

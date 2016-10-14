@@ -31,7 +31,7 @@
                     var studentID = studentInfo[0];
                     listItem.innerHTML = studentName;
                     listItem.className = "link";
-                    listItem.onclick = function(){show_enrolled_courses(studentID, studentName);}  //Once the name is clicked, it shows all the courses that person is taking, using their rowid and name as parameters
+                    listItem.onclick = function(){show_enrolled_courses(studentID, studentName);}; //Once the name is clicked, it shows all the courses that person is taking, using their rowid and name as parameters
 
                     domList.appendChild(listItem);
                 });
@@ -44,11 +44,14 @@
                 //---------------------------------------------------------------
 
                 var courseLinks = document.createElement("div");
-                courseLinks.innerHTML = "Show all courses"
+                courseLinks.innerHTML = "Show all courses";
                 courseLinks.className = "returnlink";
-                courseLinks.onclick = function(){get_all_courses();}
+                courseLinks.onclick = function(){get_all_courses();};
                 document.body.appendChild(courseLinks);
-            }
+
+                //If you want student info returned from the function call, uncomment below
+                //return studentList;
+            };
             xhr.send();
         }
 
@@ -74,7 +77,7 @@
                     var courseID = courseInfo[0];
                     listItem.innerHTML = courseName;
                     listItem.className = "link";
-                    listItem.onclick = function(){show_enrolled_students(courseID, courseName);}
+                    listItem.onclick = function(){show_enrolled_students(courseID, courseName);};
 
                     domList.appendChild(listItem);
                 });
@@ -87,11 +90,14 @@
                 //---------------------------------------------------------------
 
                 var studentLinks = document.createElement("div");
-                studentLinks.innerHTML = "Show all students"
+                studentLinks.innerHTML = "Show all students";
                 studentLinks.className = "returnlink";
-                studentLinks.onclick = function(){get_all_students();}
+                studentLinks.onclick = function(){get_all_students();};
                 document.body.appendChild(studentLinks);
-            }
+
+                //If you want the course list returned, uncomment below
+                //return courseList;
+            };
             xhr.send();
         }
 
@@ -109,14 +115,16 @@
                 var responseArray = new Uint8Array(this.response);
                 var db = new SQL.Database(responseArray);
                 var courseIDs = db.exec("SELECT c_id FROM student_courses WHERE s_id=" + s_id +";")[0].values;
-                
+                var courseNames = [];
+
                 courseIDs.forEach(function(c_id){
                     var courseName = db.exec("SELECT c_name FROM courses WHERE rowid=" + c_id + ";")[0].values;
+                    courseNames.push(courseName);
 
                     var listItem = document.createElement("li");
                     listItem.innerHTML = courseName;
                     listItem.className = "link";
-                    listItem.onclick = function(){show_enrolled_students(c_id, courseName);}
+                    listItem.onclick = function(){show_enrolled_students(c_id, courseName);};
 
                     domList.appendChild(listItem);
                 });
@@ -134,17 +142,20 @@
                 //---------------------------------------------------------------
 
                 var studentLinks = document.createElement("div");
-                studentLinks.innerHTML = "Show all students"
+                studentLinks.innerHTML = "Show all students";
                 studentLinks.className = "returnlink";
-                studentLinks.onclick = function(){get_all_students();}
+                studentLinks.onclick = function(){get_all_students();};
                 document.body.appendChild(studentLinks);
 
                 var courseLinks = document.createElement("div");
-                courseLinks.innerHTML = "Show all courses"
+                courseLinks.innerHTML = "Show all courses";
                 courseLinks.className = "returnlink";
-                courseLinks.onclick = function(){get_all_courses();}
+                courseLinks.onclick = function(){get_all_courses();};
                 document.body.appendChild(courseLinks);
-            } 
+
+                //If you want to get a returned value for your technology, uncomment the return
+                //return courseNames;
+            };
             xhr.send();
         }
 
@@ -160,32 +171,37 @@
                 var responseArray = new Uint8Array(this.response);
                 var db = new SQL.Database(responseArray);
                 var studentIDs = db.exec("SELECT s_id FROM student_courses WHERE c_id=" + c_id +";")[0].values;
+                var studentNames = [];
 
                 studentIDs.forEach(function(s_id){
                     var student = db.exec("SELECT f_name, l_name FROM students WHERE rowid=" + s_id + ";")[0].values;
                     var studentName = student[0][0] + " " + student[0][1];
+                    studentNames.push(studentName);
 
                     var listItem = document.createElement("li");
                     listItem.innerHTML = studentName;
                     listItem.className = "link";
-                    listItem.onclick = function(){show_enrolled_courses(s_id, studentName);}
+                    listItem.onclick = function(){show_enrolled_courses(s_id, studentName);};
 
                     domList.appendChild(listItem);
                 });
                 document.body.appendChild(domList);
 
                 var studentLinks = document.createElement("div");
-                studentLinks.innerHTML = "Show all students"
+                studentLinks.innerHTML = "Show all students";
                 studentLinks.className = "returnlink";
-                studentLinks.onclick = function(){get_all_students();}
+                studentLinks.onclick = function(){get_all_students();};
                 document.body.appendChild(studentLinks);
 
                 var courseLinks = document.createElement("div");
-                courseLinks.innerHTML = "Show all courses"
+                courseLinks.innerHTML = "Show all courses";
                 courseLinks.className = "returnlink";
-                courseLinks.onclick = function(){get_all_courses();}
+                courseLinks.onclick = function(){get_all_courses();};
                 document.body.appendChild(courseLinks);
-            } 
+
+                //If you want to get the value returned for your technology, uncomment return below
+                //return studentNames;
+            };
             xhr.send();
         }
 

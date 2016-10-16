@@ -114,7 +114,8 @@
                 document.body.innerHTML = "<h1>"+ s_name + "'s Classes</h1>";
                 var responseArray = new Uint8Array(this.response);
                 var db = new SQL.Database(responseArray);
-                var courseIDs = db.exec("SELECT c_id FROM student_courses WHERE s_id=" + s_id +";")[0].values;
+				var queryResult = db.exec("SELECT c_id FROM student_courses WHERE s_id=" + s_id +";");
+                var courseIDs = (queryResult.length > 0) ? queryResult[0].values : [];
                 var courseNames = [];
 
                 courseIDs.forEach(function(c_id){
@@ -170,7 +171,8 @@
                 document.body.innerHTML = "<h1>Students Enrolled in " + c_name + "</h1>";
                 var responseArray = new Uint8Array(this.response);
                 var db = new SQL.Database(responseArray);
-                var studentIDs = db.exec("SELECT s_id FROM student_courses WHERE c_id=" + c_id +";")[0].values;
+				var queryResult = db.exec("SELECT s_id FROM student_courses WHERE c_id=" + c_id +";");
+                var studentIDs = (queryResult.length > 0) ? queryResult[0].values : [];
                 var studentNames = [];
 
                 studentIDs.forEach(function(s_id){

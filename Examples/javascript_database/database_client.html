@@ -8,8 +8,8 @@
     <body>
         <script>
 
-		//SQLite database is stored here once downloaded from the server
-		var db = null;
+        //SQLite database is stored here once downloaded from the server
+        var db = null;
 		
         //Shows all students enrolled in the database using the "students" table
         //"students" uses the rowid as its primary key, which is used in the relation between students and courses
@@ -203,7 +203,7 @@
             //Called from the list of all courses
         }
 
-		//Creates async call to download the database file for querying
+        //Creates async call to download the database file for querying
         var xhr = new XMLHttpRequest();
         xhr.responseType = 'arraybuffer';
         xhr.open('GET', 'db/example_database.db', true);

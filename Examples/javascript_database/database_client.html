@@ -8,201 +8,175 @@
     <body>
         <script>
 
+		//SQLite database is stored here once downloaded from the server
+		var db = null;
+		
         //Shows all students enrolled in the database using the "students" table
         //"students" uses the rowid as its primary key, which is used in the relation between students and courses
         //column names for "students" are "f_name" and "l_name", for their first and last name
-        function get_all_students(){
-            var xhr = new XMLHttpRequest();                             //Creates async call to database file for querying
-            xhr.responseType = 'arraybuffer';
-            xhr.open('GET', 'db/example_database.db', true);
-            
+        function show_all_students(){ 
             var domList = document.createElement('ul');
-            xhr.onload = function(e){                                   //Executed once the database file is returned
-                document.body.innerHTML = "<h1>All RIT Students</h1>";
+
+            document.body.innerHTML = "<h1>All RIT Students</h1>";
                 
-                var responseArray = new Uint8Array(this.response);      //Prepares response array for holding the database's query results
-                var db = new SQL.Database(responseArray);
-                var studentList = db.exec("SELECT rowid, f_name, l_name FROM students")[0].values;      //Executes query on database (with some array manipulation to get the right values)
+            var studentList = db.exec("SELECT rowid, f_name, l_name FROM students")[0].values;      //Executes query on database (with some array manipulation to get the right values)
 
-                studentList.forEach(function(studentInfo){              //Goes through all students found, each have a rowid (from the database), first name, and last name
-                    var listItem = document.createElement("li");
+            studentList.forEach(function(studentInfo){              //Goes through all students found, each have a rowid (from the database), first name, and last name
+                var listItem = document.createElement("li");
 
-                    var studentName = studentInfo[1] + " " + studentInfo[2];        //first name + last name
-                    var studentID = studentInfo[0];
-                    listItem.innerHTML = studentName;
-                    listItem.className = "link";
-                    listItem.onclick = function(){show_enrolled_courses(studentID, studentName);}; //Once the name is clicked, it shows all the courses that person is taking, using their rowid and name as parameters
+                var studentName = studentInfo[1] + " " + studentInfo[2];        //first name + last name
+                var studentID = studentInfo[0];
+                listItem.innerHTML = studentName;
+                listItem.className = "link";
+                listItem.onclick = function(){show_enrolled_courses(studentID, studentName);}; //Once the name is clicked, it shows all the courses that person is taking, using their rowid and name as parameters
 
-                    domList.appendChild(listItem);
-                });
-                document.body.appendChild(domList);
+                domList.appendChild(listItem);
+            });
+            document.body.appendChild(domList);
 
-                //---------------------------------------------------------------
-                //
-                //Create a way to invoke "create_student(f_name, l_name)" here
-                //
-                //---------------------------------------------------------------
+            //---------------------------------------------------------------
+            //
+            //Create a way to invoke "create_student(f_name, l_name)" here
+            //
+            //---------------------------------------------------------------
 
-                var courseLinks = document.createElement("div");
-                courseLinks.innerHTML = "Show all courses";
-                courseLinks.className = "returnlink";
-                courseLinks.onclick = function(){get_all_courses();};
-                document.body.appendChild(courseLinks);
+            var courseLinks = document.createElement("div");
+            courseLinks.innerHTML = "Show all courses";
+            courseLinks.className = "returnlink";
+            courseLinks.onclick = function(){show_all_courses();};
+            document.body.appendChild(courseLinks);
 
-                //If you want student info returned from the function call, uncomment below
-                //return studentList;
-            };
-            xhr.send();
+            //If you want student info returned from the function call, uncomment below
+            //return studentList;
         }
 
         //Shows all the courses offered from the database using the "courses" table
         //"courses" uses the rowid as its primary key, which is used in the relation between students and courses
         // The only column name for "courses" is "c_name", representing the course name
-        function get_all_courses(){
-            var xhr = new XMLHttpRequest();
-            xhr.responseType = 'arraybuffer';
-            xhr.open('GET', 'db/example_database.db', true);
+        function show_all_courses(){
             var domList = document.createElement('ul');
 
-            xhr.onload = function(e){
-                document.body.innerHTML = "<h1>All RIT Courses</h1>";
-                var responseArray = new Uint8Array(this.response);
-                var db = new SQL.Database(responseArray);
-                var courseList = db.exec("SELECT rowid, c_name FROM courses")[0].values;
+            document.body.innerHTML = "<h1>All RIT Courses</h1>";
 
-                courseList.forEach(function(courseInfo){
-                    var listItem = document.createElement("li");
+            var courseList = db.exec("SELECT rowid, c_name FROM courses")[0].values;
 
-                    var courseName = courseInfo[1];
-                    var courseID = courseInfo[0];
-                    listItem.innerHTML = courseName;
-                    listItem.className = "link";
-                    listItem.onclick = function(){show_enrolled_students(courseID, courseName);};
+            courseList.forEach(function(courseInfo){
+                var listItem = document.createElement("li");
 
-                    domList.appendChild(listItem);
-                });
-                document.body.appendChild(domList);
+                var courseName = courseInfo[1];
+                var courseID = courseInfo[0];
+                listItem.innerHTML = courseName;
+                listItem.className = "link";
+                listItem.onclick = function(){show_enrolled_students(courseID, courseName);};
 
-                //---------------------------------------------------------------
-                //
-                //Create a way to invoke "create_course(c_name)" here
-                //
-                //---------------------------------------------------------------
+                domList.appendChild(listItem);
+            });
+            document.body.appendChild(domList);
 
-                var studentLinks = document.createElement("div");
-                studentLinks.innerHTML = "Show all students";
-                studentLinks.className = "returnlink";
-                studentLinks.onclick = function(){get_all_students();};
-                document.body.appendChild(studentLinks);
+            //---------------------------------------------------------------
+            //
+            //Create a way to invoke "create_course(c_name)" here
+            //
+            //---------------------------------------------------------------
 
-                //If you want the course list returned, uncomment below
-                //return courseList;
-            };
-            xhr.send();
+            var studentLinks = document.createElement("div");
+            studentLinks.innerHTML = "Show all students";
+            studentLinks.className = "returnlink";
+            studentLinks.onclick = function(){show_all_students();};
+            document.body.appendChild(studentLinks);
+
+            //If you want the course list returned, uncomment below
+            //return courseList;
         }
 
         //shows all the courses a particular student is enrolled in using the "student_courses" table
         //"student_courses" is a table that just contains student id's (column name: s_id) and course id's (column name: c_id)
         //These id's correspond to the rowid's of the "students" and "courses" tables and creates relations between the two
         function show_enrolled_courses(s_id, s_name){
-            var xhr = new XMLHttpRequest();
-            xhr.responseType = 'arraybuffer';
-            xhr.open('GET', 'db/example_database.db', true);
             var domList = document.createElement('ul');
 
-            xhr.onload = function(e){
-                document.body.innerHTML = "<h1>"+ s_name + "'s Classes</h1>";
-                var responseArray = new Uint8Array(this.response);
-                var db = new SQL.Database(responseArray);
-                var courseIDs = db.exec("SELECT c_id FROM student_courses WHERE s_id=" + s_id +";")[0].values;
-                var courseNames = [];
+            document.body.innerHTML = "<h1>"+ s_name + "'s Classes</h1>";
 
-                courseIDs.forEach(function(c_id){
-                    var courseName = db.exec("SELECT c_name FROM courses WHERE rowid=" + c_id + ";")[0].values;
-                    courseNames.push(courseName);
+            var courseIDs = db.exec("SELECT c_id FROM student_courses WHERE s_id=" + s_id +";")[0].values;
+            var courseNames = [];
 
-                    var listItem = document.createElement("li");
-                    listItem.innerHTML = courseName;
-                    listItem.className = "link";
-                    listItem.onclick = function(){show_enrolled_students(c_id, courseName);};
+            courseIDs.forEach(function(c_id){
+                var courseName = db.exec("SELECT c_name FROM courses WHERE rowid=" + c_id + ";")[0].values;
+                courseNames.push(courseName);
 
-                    domList.appendChild(listItem);
-                });
-                document.body.appendChild(domList);
+                var listItem = document.createElement("li");
+                listItem.innerHTML = courseName;
+                listItem.className = "link";
+                listItem.onclick = function(){show_enrolled_students(c_id, courseName);};
 
-                //---------------------------------------------------------------
-                //
-                //Create a way to invoke "enroll_in_course(s_id, c_id)" here
-                //
-                //---------------------------------------------------------------
-                //---------------------------------------------------------------
-                //
-                //Create a way to invoke "drop_course(s_id, c_id)" here
-                //
-                //---------------------------------------------------------------
+                domList.appendChild(listItem);
+            });
+            document.body.appendChild(domList);
 
-                var studentLinks = document.createElement("div");
-                studentLinks.innerHTML = "Show all students";
-                studentLinks.className = "returnlink";
-                studentLinks.onclick = function(){get_all_students();};
-                document.body.appendChild(studentLinks);
+            //---------------------------------------------------------------
+            //
+            //Create a way to invoke "enroll_in_course(s_id, c_id)" here
+            //
+            //---------------------------------------------------------------
+            //---------------------------------------------------------------
+            //
+            //Create a way to invoke "drop_course(s_id, c_id)" here
+            //
+            //---------------------------------------------------------------
 
-                var courseLinks = document.createElement("div");
-                courseLinks.innerHTML = "Show all courses";
-                courseLinks.className = "returnlink";
-                courseLinks.onclick = function(){get_all_courses();};
-                document.body.appendChild(courseLinks);
+            var studentLinks = document.createElement("div");
+            studentLinks.innerHTML = "Show all students";
+            studentLinks.className = "returnlink";
+            studentLinks.onclick = function(){show_all_students();};
+            document.body.appendChild(studentLinks);
 
-                //If you want to get a returned value for your technology, uncomment the return
-                //return courseNames;
-            };
-            xhr.send();
+            var courseLinks = document.createElement("div");
+            courseLinks.innerHTML = "Show all courses";
+            courseLinks.className = "returnlink";
+            courseLinks.onclick = function(){show_all_courses();};
+            document.body.appendChild(courseLinks);
+
+            //If you want to get a returned value for your technology, uncomment the return
+            //return courseNames;
         }
 
         //shows all the students enrolled in a particular course
         function show_enrolled_students(c_id, c_name){
-            var xhr = new XMLHttpRequest();
-            xhr.responseType = 'arraybuffer';
-            xhr.open('GET', 'db/example_database.db', true);
             var domList = document.createElement('ul');
 
-            xhr.onload = function(e){
-                document.body.innerHTML = "<h1>Students Enrolled in " + c_name + "</h1>";
-                var responseArray = new Uint8Array(this.response);
-                var db = new SQL.Database(responseArray);
-                var studentIDs = db.exec("SELECT s_id FROM student_courses WHERE c_id=" + c_id +";")[0].values;
-                var studentNames = [];
+            document.body.innerHTML = "<h1>Students Enrolled in " + c_name + "</h1>";
 
-                studentIDs.forEach(function(s_id){
-                    var student = db.exec("SELECT f_name, l_name FROM students WHERE rowid=" + s_id + ";")[0].values;
-                    var studentName = student[0][0] + " " + student[0][1];
-                    studentNames.push(studentName);
+            var studentIDs = db.exec("SELECT s_id FROM student_courses WHERE c_id=" + c_id +";")[0].values;
+            var studentNames = [];
 
-                    var listItem = document.createElement("li");
-                    listItem.innerHTML = studentName;
-                    listItem.className = "link";
-                    listItem.onclick = function(){show_enrolled_courses(s_id, studentName);};
+            studentIDs.forEach(function(s_id){
+                var student = db.exec("SELECT f_name, l_name FROM students WHERE rowid=" + s_id + ";")[0].values;
+                var studentName = student[0][0] + " " + student[0][1];
+                studentNames.push(studentName);
 
-                    domList.appendChild(listItem);
-                });
-                document.body.appendChild(domList);
+                var listItem = document.createElement("li");
+                listItem.innerHTML = studentName;
+                listItem.className = "link";
+                listItem.onclick = function(){show_enrolled_courses(s_id, studentName);};
 
-                var studentLinks = document.createElement("div");
-                studentLinks.innerHTML = "Show all students";
-                studentLinks.className = "returnlink";
-                studentLinks.onclick = function(){get_all_students();};
-                document.body.appendChild(studentLinks);
+                domList.appendChild(listItem);
+            });
+            document.body.appendChild(domList);
 
-                var courseLinks = document.createElement("div");
-                courseLinks.innerHTML = "Show all courses";
-                courseLinks.className = "returnlink";
-                courseLinks.onclick = function(){get_all_courses();};
-                document.body.appendChild(courseLinks);
+            var studentLinks = document.createElement("div");
+            studentLinks.innerHTML = "Show all students";
+            studentLinks.className = "returnlink";
+            studentLinks.onclick = function(){show_all_students();};
+            document.body.appendChild(studentLinks);
 
-                //If you want to get the value returned for your technology, uncomment return below
-                //return studentNames;
-            };
-            xhr.send();
+            var courseLinks = document.createElement("div");
+            courseLinks.innerHTML = "Show all courses";
+            courseLinks.className = "returnlink";
+            courseLinks.onclick = function(){show_all_courses();};
+            document.body.appendChild(courseLinks);
+
+            //If you want to get the value returned for your technology, uncomment return below
+            //return studentNames;
         }
 
         function enroll_in_course(s_id, c_id){
@@ -229,7 +203,16 @@
             //Called from the list of all courses
         }
 
-        get_all_students();
+		//Creates async call to download the database file for querying
+        var xhr = new XMLHttpRequest();
+        xhr.responseType = 'arraybuffer';
+        xhr.open('GET', 'db/example_database.db', true);
+        xhr.onload = function(e){                                   //Executed once the database file is returned
+            var responseArray = new Uint8Array(this.response);
+            db = new SQL.Database(responseArray);
+            show_all_students();
+        }
+		xhr.send();
             
         </script>
     </body>

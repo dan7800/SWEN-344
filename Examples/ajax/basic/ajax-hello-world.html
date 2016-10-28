@@ -18,6 +18,8 @@ a.onreadystatechange=function()
 {
   if (a.readyState==4 && a.status==200)
   {
+    console.log("Dan is cool");
+    console.log(a.responseText);
     document.getElementById("myDiv").innerHTML=a.responseText;
    }
 }

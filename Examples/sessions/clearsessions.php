@@ -17,10 +17,6 @@ $_SESSION["username"] = "";
 
 
 
-<a href="session1.php">Set sessions</a>
-
-
-
 
 </body>
 </html>

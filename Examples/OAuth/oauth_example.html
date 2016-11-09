@@ -1,6 +1,6 @@
 <html>
     <head>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script>
         <meta name="google-signin-client_id" content="YOUR CLIENT ID HERE"></meta>
     </head>
     <body>
@@ -29,12 +29,15 @@
                  *   other authentication information.
                  */
                 onSignInCallback: function(authResult) {
-                    var token = authResult.access_token;
-                    console.log("TOKEN: " + token);
                     if (authResult.isSignedIn.get()) {
+                        var access_token = authResult.currentUser.get().getAuthResponse().access_token;
+                        console.log("access_token: " + access_token);
+
+                        var id_token = authResult.currentUser.get().getAuthResponse().id_token;
+                        console.log("id_token: " + id_token);
                         $('#authOps').show();
                         $('#gConnect').hide();
-                        helper.profile();
+                        helper.profile(access_token);
                     }
                     else {
                         if (authResult['error'] || authResult.currentUser.get().getAuthResponse() == null) {
@@ -51,20 +54,21 @@
                 /**
                  * Gets and renders the currently signed in user's profile data.
                  */
-                profile: function(){
+                profile: function(access_token){
                     gapi.client.plus.people.get({
                         'userId': 'me'
                     }).then(function(res) {
                         var profile = res.result;
-                        console.log(profile);
                         $('#profile').empty();
+                        $('#profile').append(
+                                $('<button onclick="getUserInfoFromToken(\''+access_token+'\')">GetToken</button>'));
                         $('#profile').append(
                                 $('<p><img src=\"' + profile.image.url + '\"></p>'));
                         $('#profile').append(
                                 $('<p><em>Name: </em>' + profile.displayName + '<br /><em>Tagline: </em>' +
                                         profile.tagline + '</p>'));
                         if (profile.emails) {
-                            $('#profile').append('<br/>Emails: ');
+                            $('#profile').append('Emails: ');
                             for (var i=0; i < profile.emails.length; i++){
                                 $('#profile').append(profile.emails[i].value).append(' ');
                             }
@@ -112,18 +116,33 @@
             }
         };
 
+        function getUserInfoFromToken(accessToken){
+            $.ajax({
+                url:'https://www.googleapis.com/oauth2/v3/tokeninfo',
+                type:'POST',
+                data:'access_token='+accessToken,
+                success: function(msg){
+                    var expireTime = msg['expires_in'];
+                    var scope = msg['scope'];
+
+                    console.log(msg);
+                    alert("Session expires in: " + expireTime
+                            //+"\nUser Id: " + userId       //only works if you have granted this session "profile" under scope
+                            +"\nGranted Scope: " + scope
+                    );
+                }
+            })
+        }
+
         /**
          * This method sets up the sign-in listener after the client library loads.
          */
         function startApp() {
             gapi.load('auth2', function() {
                 gapi.client.load('plus','v1').then(function() {
-                    gapi.signin2.render('signin-button', {
-                        scope: 'https://www.googleapis.com/auth/plus.login',
-                        fetch_basic_profile: false });
-                    gapi.auth2.init({fetch_basic_profile: false,
-                        scope:'https://www.googleapis.com/auth/plus.login'}).then(
-                            function (){
+                    gapi.signin2.render('signin-button', {scope: 'profile', fetch_basic_profile: false });
+                    gapi.auth2.init({fetch_basic_profile: false, scope:'profile'})
+                            .then(function (){
                                 console.log('init');
                                 auth2 = gapi.auth2.getAuthInstance();
                                 auth2.isSignedIn.listen(updateSignIn);

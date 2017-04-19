@@ -48,9 +48,15 @@ session_start();
                name = "login">Login</button>
          </form>
 			
-         Click here to clean <a href = "clearsessions.php" tite = "Logout">Session.
+         Click here to clean <a href = "clearsessions.php" tite = "Logout">Session.</a>
          
       </div> 
       
+
+<p>
+<b>Login:</b> <i>You can enter whatever you want</i> <br>
+<b>Password:</b> 1234
+   <p/>
+
    </body>
 </html>

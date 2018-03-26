@@ -1,1 +1,1 @@
-You will likely need to move this fun to your "localhost" directory, but this should run out of the box as a simple ajax example.
+You will likely need to move this from to your "localhost" directory, but this should run out of the box as a simple ajax example.

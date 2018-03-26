@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AJAX Example</title>
+</head>
+<body>
+  <h3>A Simple AJAX Example</h3>
+  <button class="btn-1">Click to load the first Server Message</button>
+  <button class="btn-2">CLick to load the second Server Message</button>
+  <div class="loaded-text">
+
+  </div>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(()=>{
+      $('.btn-1').click(()=>{
+        getData(1);
+      });
+
+      $('.btn-2').click(()=>{
+        getData(2);
+      });
+
+      function getData(num) {
+        if(num == 1){
+          $.ajax({url: "ServerMessage.txt", success: (result) => {
+            $(".loaded-text").html(result);
+          }});
+        }
+        else if(num == 2){
+          $.ajax({url: "ServerMessage2.txt", success: (result) => {
+            $(".loaded-text").html(result);
+          }});
+        }
+      }
+      
+    });
+  </script>
+</body>
+</html>

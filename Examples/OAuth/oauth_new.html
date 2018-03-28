@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OAuth Example</title>
+	<!-- Add your client ID here -->
+	<meta name="google-signin-client_id" content="YOUR CLIENT ID HERE">
+</head>
+<body>
+	<!-- Template for when the user is signed out-->
+	<div class="default">
+		<h3>Click the button to sign in</h3>
+		<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	</div>
+	<!-- Template for when the user is signed-in -->
+	<div class="signed-in">
+		<h1>Name</h1>
+		<h3 class="user-name"></h3>
+		<h1>Email:</h1>
+		<h3 class="user-email"></h3>
+		<h1>Profile Image</h1>
+		<img src="" alt="" class="user-image">
+		<button onclick="signOut()" class="logoutButton">Logout</button>
+	</div>
+	
+	<!-- Template for when there is an error in the API -->
+	<div class="error">
+		<h3>There was an error loading the OAuthAPI</h3>
+	</div>
+	<!-- Adding JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script>
+
+	<script>
+		// What happens when you sign out
+		function signOut() {
+			var auth2 = gapi.auth2.getAuthInstance();
+			auth2.signOut().then(function () {
+				$(".default").show();
+				$(".error").hide();
+				$(".signed-in").hide();
+			});
+		}
+
+	  		// What happens when you sign in. 
+	  		function onSignIn (googleUser) {
+	  			$(".default").hide();
+	  			$(".error").hide();
+	  			$(".signed-in").show();
+	  			var profile = googleUser.getBasicProfile();
+	  			$('.user-name').html(profile.getName());
+	  			$('.user-email').html(profile.getEmail());
+	  			$('.user-image').attr('src', profile.getImageUrl());
+	  			console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+	  			console.log('Name: ' + profile.getName());
+	  			console.log('Image URL: ' + profile.getImageUrl());
+	  			console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	  		}
+
+	  		// Checking if the API is working 
+	  		$(document).ready(function() {
+	  			if ($('meta')[0].content == 'YOUR CLIENT ID HERE') {
+	  				alert('This sample requires your OAuth credentials (client ID) ' +
+	  					'from the Google APIs console:\n' +
+	  					'    https://code.google.com/apis/console/#:access\n\n' +
+	  					'Find and replace YOUR_CLIENT_ID with your client ID.'
+	  					);
+	  				$(".default").hide();
+	  				$(".error").show();
+	  				$(".signed-in").hide();
+	  			}
+	  			else{
+	  				$(".default").show();
+	  				$(".error").hide();
+	  				$(".signed-in").hide();
+	  			}
+	  		});
+	  	</script>
+	  	<!-- Google API Platform Library -->
+	  	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	  </body>
+	  </html>

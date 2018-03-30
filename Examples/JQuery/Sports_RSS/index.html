@@ -46,17 +46,22 @@
 	<script>
 		//this forces javascript to conform to some rules, like declaring variables with var
 		"use strict";
-	  
-		window.onload = init;
-		
-		function init(){
+	  	var url = "http://www.espn.com/espn/rss/NHL/news";
+		window.onload = function(){
+			init(url);
+		}
+
+
+		function init(url){
 			//NHL URL for ESPN RSS feed
-			var url = "http://espn.go.com/espn/rss/nhl/news";
+			console.log("Entering Init");	
 			
+	
 			document.querySelector("#content").innerHTML = "<b>Loading news...</b>";
 			$("#content").fadeOut(250);
 			//fetch the data
 			$.get(url).done(function(data){xmlLoaded(data);});
+			alert(data);
 		}
 		
 		
@@ -107,7 +112,7 @@
 <body>
 
 	<div id="header">
-		<img id="logo" /><h1>NHL News</h1>
+		<img id="logo" /><h1>Hockey News</h1>
 	</div>
 
 	<div id="content">

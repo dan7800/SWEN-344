@@ -2,7 +2,7 @@
         this.name = name;
     }
 
-    Mortgage.prototype = {
+    Mortgage.prototype = {   //Represents the Facade. Has "hooks" into the different subsystems
         applyFor: function(amount) {
 
             // access multiple subsystems...
